@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+    <link rel="stylesheet" href="css/Landing.css">
+</head>
+<body>
+    <header class="navbar" id="navbar">
+        <div class="logo"><img src="images/Logo.png"></div>
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Contact</a>
+        </div>
+        <div class="profile">
+            <a href="#">Login</a>
+            <a href="#">Sign Up</a>
+        </div>
+    </header>
+    
+    <section class="hero">
+    <div>
+      <span class="tagline">✨ Where Campus Magic Happens ✨</span>
+      <h2>Find Your <span>Perfect Buddy</span> on Campus</h2>
+      <p>Connect with like-minded students, share amazing memories, and build lasting friendships. Your campus social life starts here! 🎓💕</p>
+      <div class="buttons">
+        <button class="btn btn-gradient">Start Connecting</button>
+        <button class="btn btn-outline">Watch Demo</button>
+      </div>
+      <div class="stats">
+        <div class="stat"><p>15K+</p><p>Active Students</p></div>
+        <div class="stat"><p>50K+</p><p>Connections Made</p></div>
+        <div class="stat"><p>100K+</p><p>Memories Shared</p></div>
+      </div>
+    </div>
+    <div class="image-card">
+      <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" alt="Students" />
+      <span class="badge">❤️ New Match!</span>
+    </div>
+  </section>
+
+  <!-- Floating Messages -->
+  <div class="floating-msg" id="messages">
+    💬 <span id="msgCount">5</span> New Messages
+  </div>
+
+  <!-- Footer -->
+  
+
+  <script>
+    // Example: Increase message count on click
+    const msg = document.getElementById("messages");
+    const msgCount = document.getElementById("msgCount");
+    let count = 5;
+    msg.addEventListener("click", () => {
+      count++;
+      msgCount.textContent = count;
+    });
+  </script>
+    <br>
+    <br>
+    <br>
+      <!-- Heading -->
+  <div class="text-center mb-12">
+    <h1 class="text-5xl font-bold text-gray-800 mb-4">
+      🎉 Amazing Features for 
+      <span class="bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent">You!</span>
+    </h1>
+    <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+      ✨ Everything you need to connect, share, and showcase your incredible talents! 🌈
+    </p>
+  </div>
+
+  <!-- Features Grid -->
+  <div class="max-w-7xl mx-auto">
+    <!-- Top 3 cards -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
+
+      <!-- Card 1 -->
+      <div class="group relative overflow-hidden rounded-3xl bg-gradient-to-br from-pink-50 to-rose-50 p-8 transition-all duration-500 hover:scale-105 hover:shadow-2xl cursor-pointer border-2 border-white/80">
+        <div class="absolute top-4 right-4 opacity-30 group-hover:opacity-70 transition-all duration-500 group-hover:animate-bounce">
+          <i data-lucide="heart" class="w-8 h-8 text-gray-400"></i>
+        </div>
+        <div class="p-4 rounded-2xl bg-gradient-to-br from-pink-300 to-rose-300 shadow-lg mb-6 w-fit group-hover:rotate-12 transition-transform duration-500">
+          <i data-lucide="message-circle" class="w-8 h-8 text-white"></i>
+        </div>
+        <div class="space-y-4">
+          <div class="flex items-center justify-between">
+            <h3 class="text-2xl font-bold text-rose-600">💬 Chat & Calls</h3>
+            <i data-lucide="phone" class="w-6 h-6 text-rose-600 opacity-60"></i>
+          </div>
+          <p class="text-gray-700 leading-relaxed">
+            Connect instantly with amazing people! Enjoy fun conversations and crystal-clear video calls.
+          </p>
+        </div>
+        <div class="mt-6">
+          <button class="px-6 py-3 bg-gradient-to-r from-pink-300 to-rose-300 text-white font-semibold rounded-xl hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300 flex items-center space-x-2">
+            <span>Explore</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="group relative overflow-hidden rounded-3xl bg-gradient-to-br from-purple-50 to-violet-50 p-8 transition-all duration-500 hover:scale-105 hover:shadow-2xl cursor-pointer border-2 border-white/80">
+        <div class="absolute top-4 right-4 opacity-30 group-hover:opacity-70 transition-all duration-500 group-hover:animate-bounce">
+          <i data-lucide="sparkles" class="w-8 h-8 text-gray-400"></i>
+        </div>
+        <div class="p-4 rounded-2xl bg-gradient-to-br from-purple-300 to-violet-300 shadow-lg mb-6 w-fit group-hover:rotate-12 transition-transform duration-500">
+          <i data-lucide="users" class="w-8 h-8 text-white"></i>
+        </div>
+        <div class="space-y-4">
+          <h3 class="text-2xl font-bold text-purple-600">✨ Smart Matching</h3>
+          <p class="text-gray-700 leading-relaxed">
+            Discover your perfect connections! Our magical algorithm finds people who share your vibe and interests.
+          </p>
+        </div>
+        <div class="mt-6">
+          <button class="px-6 py-3 bg-gradient-to-r from-purple-300 to-violet-300 text-white font-semibold rounded-xl hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300 flex items-center space-x-2">
+            <span>Explore</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="group relative overflow-hidden rounded-3xl bg-gradient-to-br from-emerald-50 to-teal-50 p-8 transition-all duration-500 hover:scale-105 hover:shadow-2xl cursor-pointer border-2 border-white/80">
+        <div class="absolute top-4 right-4 opacity-30 group-hover:opacity-70 transition-all duration-500 group-hover:animate-bounce">
+          <i data-lucide="star" class="w-8 h-8 text-gray-400"></i>
+        </div>
+        <div class="p-4 rounded-2xl bg-gradient-to-br from-emerald-300 to-teal-300 shadow-lg mb-6 w-fit group-hover:rotate-12 transition-transform duration-500">
+          <i data-lucide="camera" class="w-8 h-8 text-white"></i>
+        </div>
+        <h3 class="text-2xl font-bold text-emerald-600">📸 Share Memories</h3>
+        <p class="text-gray-700 leading-relaxed">
+          Capture life's beautiful moments! Share your adventures and special memories with friends.
+        </p>
+        <div class="mt-6">
+          <button class="px-6 py-3 bg-gradient-to-r from-emerald-300 to-teal-300 text-white font-semibold rounded-xl hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300 flex items-center space-x-2">
+            <span>Explore</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom 2 cards centered -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+      <!-- Card 4 -->
+      <div class="group relative overflow-hidden rounded-3xl bg-gradient-to-br from-orange-50 to-amber-50 p-8 transition-all duration-500 hover:scale-105 hover:shadow-2xl cursor-pointer border-2 border-white/80">
+        <div class="absolute top-4 right-4 opacity-30 group-hover:opacity-70 transition-all duration-500 group-hover:animate-bounce">
+          <i data-lucide="zap" class="w-8 h-8 text-gray-400"></i>
+        </div>
+        <div class="p-4 rounded-2xl bg-gradient-to-br from-orange-300 to-amber-300 shadow-lg mb-6 w-fit group-hover:rotate-12 transition-transform duration-500">
+          <i data-lucide="calendar" class="w-8 h-8 text-white"></i>
+        </div>
+        <h3 class="text-2xl font-bold text-orange-600">🎉 Amazing Events</h3>
+        <p class="text-gray-700 leading-relaxed">
+          Never miss the fun! Stay updated with exciting club activities and networking adventures.
+        </p>
+        <div class="mt-6">
+          <button class="px-6 py-3 bg-gradient-to-r from-orange-300 to-amber-300 text-white font-semibold rounded-xl hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300 flex items-center space-x-2">
+            <span>Explore</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="group relative overflow-hidden rounded-3xl bg-gradient-to-br from-indigo-50 to-blue-50 p-8 transition-all duration-500 hover:scale-105 hover:shadow-2xl cursor-pointer border-2 border-white/80">
+        <div class="absolute top-4 right-4 opacity-30 group-hover:opacity-70 transition-all duration-500 group-hover:animate-bounce">
+          <i data-lucide="trophy" class="w-8 h-8 text-gray-400"></i>
+        </div>
+        <div class="p-4 rounded-2xl bg-gradient-to-br from-indigo-300 to-blue-300 shadow-lg mb-6 w-fit group-hover:rotate-12 transition-transform duration-500">
+          <i data-lucide="user" class="w-8 h-8 text-white"></i>
+        </div>
+        <h3 class="text-2xl font-bold text-indigo-600">🌟 Showcase Talent</h3>
+        <p class="text-gray-700 leading-relaxed">
+          Show the world your amazing talents! Create a stunning profile with your skills and projects.
+        </p>
+        <div class="mt-6">
+          <button class="px-6 py-3 bg-gradient-to-r from-indigo-300 to-blue-300 text-white font-semibold rounded-xl hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300 flex items-center space-x-2">
+            <span>Explore</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+ <div class="rating-badge">⭐ 4.9/5 Rating</div>
+  
+  <div class="head"><h2>What Students Are Saying</h2>
+  <p class="subtext">Join thousands of happy students who found their perfect campus connections!</p></div>
+  
+  <div class="testimonials">
+    <div class="card pink">
+      <div class="stars">★★★★★</div>
+      <p>"CampusConnect helped me find my study group and best friends! The matching algorithm is incredible - it really understands what I'm looking for. Love it! 💕"</p>
+      <div class="user">
+        <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Sarah">
+        <div class="user-info">
+          <strong>Sarah Chen</strong>
+          <span>Computer Science • Class of 2025</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card blue">
+      <div class="stars">★★★★★</div>
+      <p>"The video call feature is amazing! I've made so many genuine connections and even found my hackathon partner here. This app changed my university experience! 🎓❤️"</p>
+      <div class="user">
+        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Mike">
+        <div class="user-info">
+          <strong>Mike Johnson</strong>
+          <span>Business • Class of 2024</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card cyan">
+      <div class="stars">★★★★★</div>
+      <p>"I love sharing my campus memories here! The community is so supportive and I've discovered so many fun events and groups. Highly recommend! ✨📸"</p>
+      <div class="user">
+        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Emma">
+        <div class="user-info">
+          <strong>Emma Davis</strong>
+          <span>Psychology • Class of 2026</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+    <footer>
+    <div class="footer-container">
+      
+       
+      <div class="footer-brand">
+        <h2><span>💜</span> CONNECTED</h2>
+        <p>
+          Where campus friendships begin! Connect with like-minded students, 
+          share amazing memories, and build lasting relationships that go beyond graduation. 💕
+        </p>
+        <div class="social">
+          <a href="#">f</a>
+          <a href="#">ig</a>
+          <a href="#">tw</a>
+        </div>
+      </div>
+
+      <div class="footer-links">
+        <h3>Features</h3>
+        <a href="#">Profile Matching</a>
+        <a href="#">Video Calls</a>
+        <a href="#">Memory Sharing</a>
+        <a href="#">Communities</a>
+      </div>
+
+      
+      <div class="footer-links">
+        <h3>Support</h3>
+        <a href="#">Help Center</a>
+        <a href="#">Safety Guidelines</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+    </div>
+
+    
+    <div class="footer-bottom">
+      <p>© 2025 CONNECTED. All rights reserved. Made with <span>💕</span> for students.</p>
+      
+      <div class="contact">
+        <p>📧 hello@connected.com</p>
+        <p>📞 1-800-CAMPUS</p>
+       
+      </div>
+    </div>
+  </footer>
+<script>
+    lucide.createIcons();
+  </script>
+    <script src="javascript/script.js"></script>
+</body>
+</html>
+
+
