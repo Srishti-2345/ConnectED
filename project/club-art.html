@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Arts Collective — Details</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+      <header class="navbar" id="navbar">
+        <div class="logo"><img src="D:/FEE PROJECT/ConnectED/images/Logo.png"></div>
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Contact</a>
+        </div>
+        <div class="profile">
+            <a href="#">Login</a>
+            <a href="#">Sign Up</a>
+        </div>
+    </header>
+
+  <main id="main" class="section">
+    <div class="container">
+      <h1>Arts Collective</h1>
+      <p class="muted">A campus-wide studio for painters, illustrators, designers, and creators.</p>
+
+      <div class="spacer-md"></div>
+      <div class="grid grid-2">
+        <section class="card">
+          <h2>About</h2>
+          <p>We host weekly studio sessions, peer critiques, and gallery pop-ups. Whether you’re a beginner or exhibiting artist, bring your curiosity and we’ll bring the supplies.</p>
+          <ul class="list">
+            <li><span class="dot" aria-hidden="true"></span><span>Open studio every Friday evening</span></li>
+            <li><span class="dot" aria-hidden="true"></span><span>Monthly gallery nights with campus guests</span></li>
+            <li><span class="dot" aria-hidden="true"></span><span>Design jams with Tech Club for collaborations</span></li>
+          </ul>
+        </section>
+
+        <section class="card">
+          <h2>Core Members</h2>
+          <div class="grid grid-2">
+            <div class="member">
+              <div class="avatar" aria-hidden="true"> <img src="images/User pfp.jpeg" alt="profile"></div>
+              <div class="info"><strong class="name" style="color: #F5F3EE;">River Chen</strong><p class="role">President</p></div>
+            </div>
+            <div class="member">
+              <div class="avatar" aria-hidden="true"><img src="images/User pfp.jpeg" alt="profile"></div>
+              <div class="info"><strong class="name"style="color: #F5F3EE;">Ava Patel</strong><p class="role">Curator</p></div>
+            </div>
+            <div class="member">
+              <div class="avatar" aria-hidden="true"><img src="images/User pfp.jpeg" alt="profile"></div>
+              <div class="info"><strong class="name"style="color: #F5F3EE;">Leo Martinez</strong><p class="role">Workshops Lead</p></div>
+            </div>
+            <div class="member">
+              <div class="avatar" aria-hidden="true"><img src="images/User pfp.jpeg" alt="profile"></div>
+              <div class="info"><strong class="name"style="color: #F5F3EE;">Sophia Nguyen</strong><p class="role">Visual Design</p></div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div class="spacer-md"></div>
+      <section class="card">
+        <h2>Events</h2>
+        <div class="grid grid-3">
+          <article class="card">
+            <img src="images/gallerypop.jpeg" alt="Gallery pop-up with student paintings" style="border-radius:.6rem; border:1px solid var(--border); margin-bottom:.5rem;">
+            <h3>Gallery Pop-Up</h3>
+            <p class="muted">Show your work at our monthly exhibitions in the Student Union.</p>
+          </article>
+          <article class="card">
+            <img src="images/watercolor.jpeg" alt="Students practicing watercolor" style="border-radius:.6rem; border:1px solid var(--border); margin-bottom:.5rem;">
+            <h3>Watercolor Workshop</h3>
+            <p class="muted">Learn techniques and color theory with provided materials.</p>
+          </article>
+          <article class="card">
+            <img src="images/crit party.jpeg" alt="Design critique wall with posters" style="border-radius:.6rem; border:1px solid var(--border); margin-bottom:.5rem;">
+            <h3>Design Crit Night</h3>
+            <p class="muted">Peer feedback sessions for designers and illustrators.</p>
+          </article>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div style="display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap;">
+        <div>© <span id="year"></span> Campus Clubs</div>
+        <div class="muted">Create boldly.</div>
+      </div>
+    </div>
+  </footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear()
+
+       const navbar = document.getElementById('navbar');
+
+    window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+        navbar.classList.add('blur');
+    } else {
+        navbar.classList.remove('blur');
+    }
+});
+  </script>
+</body>
+</html>

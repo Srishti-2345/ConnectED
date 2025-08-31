@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Music Society — Details</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+      <header class="navbar" id="navbar">
+        <div class="logo"><img src="D:/FEE PROJECT/ConnectED/images/Logo.png"></div>
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Contact</a>
+        </div>
+        <div class="profile">
+            <a href="#">Login</a>
+            <a href="#">Sign Up</a>
+        </div>
+    </header>
+
+  <main id="main" class="section">
+    <div class="container">
+      <h1>Music Society</h1>
+      <p class="muted">For performers, producers, and fans—come make some noise.</p>
+
+      <div class="spacer-md"></div>
+      <div class="grid grid-2">
+        <section class="card">
+          <h2>About</h2>
+          <p>We host open mics, production workshops, and monthly live shows. If you sing, play, or produce, this is your stage and your studio.</p>
+          <ul class="list">
+            <li><span class="dot" aria-hidden="true"></span><span>Open mic every first Thursday</span></li>
+            <li><span class="dot" aria-hidden="true"></span><span>Production labs using free DAWs</span></li>
+            <li><span class="dot" aria-hidden="true"></span><span>Collabs with Film Club for soundtracks</span></li>
+          </ul>
+        </section>
+
+        <section class="card">
+          <h2>Core Members</h2>
+          <div class="grid grid-2">
+            <div class="member">
+              <div class="avatar" aria-hidden="true"><img src="images/User pfp.jpeg" alt="profile"></div>
+              <div class="info"><strong class="name" style="color: #F5F3EE;">Noah Carter</strong><p class="role">President</p></div>
+            </div>
+            <div class="member">
+              <div class="avatar" aria-hidden="true"><img src="images/User pfp.jpeg" alt="profile"></div>
+              <div class="info"><strong class="name" style="color: #F5F3EE;">Emi Tanaka</strong><p class="role">Events Lead</p></div>
+            </div>
+            <div class="member">
+              <div class="avatar" aria-hidden="true"><img src="images/User pfp.jpeg" alt="profile"></div>
+              <div class="info"><strong class="name" style="color: #F5F3EE;">Luca Rossi</strong><p class="role">Studio Manager</p></div>
+            </div>
+            <div class="member">
+              <div class="avatar" aria-hidden="true"><img src="images/User pfp.jpeg" alt="profile"></div>
+              <div class="info"><strong class="name" style="color: #F5F3EE;">Zara Ahmed</strong><p class="role">Community</p></div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div class="spacer-md"></div>
+      <section class="card">
+        <h2>Events</h2>
+        <div class="grid grid-3">
+          <article class="card">
+            <img src="images/openmic.jpeg" alt="Student singing at open mic" style="border-radius:.6rem; border:1px solid var(--border); margin-bottom:.5rem;">
+            <h3>Open Mic Night</h3>
+            <p class="muted">Showcase your originals or covers in a chill atmosphere.</p>
+          </article>
+          <article class="card">
+            <img src="images/musicworkshop.jpeg" alt="Students producing tracks on laptops" style="border-radius:.6rem; border:1px solid var(--border); margin-bottom:.5rem;">
+            <h3>Production Workshop</h3>
+            <p class="muted">Learn mixing, mastering, and beat-making with free tools.</p>
+          </article>
+          <article class="card">
+            <img src="images/music event.jpeg" alt="Live band performing on campus" style="border-radius:.6rem; border:1px solid var(--border); margin-bottom:.5rem;">
+            <h3>Campus Live</h3>
+            <p class="muted">Join us for monthly shows featuring student bands and DJs.</p>
+          </article>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div style="display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap;">
+        <div>© <span id="year"></span> Campus Clubs</div>
+        <div class="muted">Turn it up.</div>
+      </div>
+    </div>
+  </footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear()
+
+       const navbar = document.getElementById('navbar');
+
+    window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+        navbar.classList.add('blur');
+    } else {
+        navbar.classList.remove('blur');
+    }
+});
+  </script>
+</body>
+</html>

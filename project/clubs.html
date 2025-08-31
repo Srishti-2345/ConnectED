@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Campus Clubs — Browse</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <!-- <a href="#main" class="skip-link">Skip to content</a>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="index.html" aria-label="Campus Clubs Home">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <strong>Campus Clubs</strong>
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="clubs.html" aria-current="page">Clubs</a>
+      </nav>
+    </div>
+  </header> -->
+    <header class="navbar" id="navbar">
+        <div class="logo"><img src="D:/FEE PROJECT/ConnectED/images/Logo.png"></div>
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Contact</a>
+        </div>
+        <div class="profile">
+            <a href="#">Login</a>
+            <a href="#">Sign Up</a>
+        </div>
+    </header>
+
+  <main id="main" class="section">
+    <div class="container">
+      <h1>All Clubs</h1>
+      <p class="muted">Browse active student organizations and find your community.</p>
+      <div class="spacer-md"></div>
+
+      <div class="grid grid-3">
+        <article class="card">
+          <img src="images/techclub.jpeg" alt="Students coding together at laptops" style="border-radius:.6rem; border:1px solid var(--border); margin-bottom:.75rem;">
+          <div class="card-title">
+            <h3>Tech & Innovation Club</h3>
+            <span class="badge">STEM</span>
+          </div>
+          <p class="muted">Coding nights, hackathons, robotics, AI seminars, and more.</p>
+          <div class="spacer-sm"></div>
+          <a class="btn" href="club-tech.html">View details</a>
+        </article>
+
+        <article class="card">
+          <img src="images/artclub.jpeg" alt="Art studio with canvases and paints" style="border-radius:.6rem; border:1px solid var(--border); margin-bottom:.75rem;">
+          <div class="card-title">
+            <h3>Arts Collective</h3>
+            <span class="badge">Creative</span>
+          </div>
+          <p class="muted">Painting, illustration, design jams, and gallery shows.</p>
+          <div class="spacer-sm"></div>
+          <a class="btn" href="club-art.html">View details</a>
+        </article>
+
+        <article class="card">
+          <img src="images/musicclub.png" alt="Band rehearsing with instruments" style="border-radius:.6rem; border:1px solid var(--border); margin-bottom:.75rem;">
+          <div class="card-title">
+            <h3>Music Society</h3>
+            <span class="badge">Performance</span>
+          </div>
+          <p class="muted">Open mics, production workshops, and live shows.</p>
+          <div class="spacer-sm"></div>
+          <a class="btn" href="club-music.html">View details</a>
+        </article>
+
+        <article class="card">
+          <img src="images/sportsclub.png" alt="Tournaments" style="border-radius:.6rem; border:1px solid var(--border); margin-bottom:.75rem;">
+          <div class="card-title">
+            <h3>Sports Club</h3>
+            <span class="badge">Fitness</span>
+          </div>
+          <p class="muted">Training sessions, friendly matches, and tournaments.</p>
+          <div class="spacer-sm"></div>
+          <a class="btn" href="#">View details</a>
+        </article>
+
+        <article class="card">
+          <img src="images/theaterclub.jpeg" alt="Live Acting" style="border-radius:.6rem; border:1px solid var(--border); margin-bottom:.75rem;">
+          <div class="card-title">
+            <h3>Theater Society</h3>
+            <span class="badge">Acting</span>
+          </div>
+          <p class="muted">Stage plays, acting workshops, and live performances.</p>
+          <div class="spacer-sm"></div>
+          <a class="btn" href="#">View details</a>
+        </article>
+
+        <article class="card">
+          <img src="images/gamingclub.png" alt="Tournaments" style="border-radius:.6rem; border:1px solid var(--border); margin-bottom:.75rem;">
+          <div class="card-title">
+            <h3>Gaming Society</h3>
+            <span class="badge">Gaming</span>
+          </div>
+          <p class="muted">Multiplayer sessions, strategy workshops, and esports events.</p>
+          <div class="spacer-sm"></div>
+          <a class="btn" href="#">View details</a>
+        </article>
+
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div style="display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap;">
+        <div>© <span id="year"></span> Campus Clubs</div>
+        <div class="muted">Questions? Find us at the Student Union.</div>
+      </div>
+    </div>
+  </footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear()
+
+       const navbar = document.getElementById('navbar');
+
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+        navbar.classList.add('blur');
+    } else {
+        navbar.classList.remove('blur');
+    }
+});
+  </script>
+</body>
+</html>

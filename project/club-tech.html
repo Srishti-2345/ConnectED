@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tech & Innovation Club — Details</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+      <header class="navbar" id="navbar">
+        <div class="logo"><img src="D:/FEE PROJECT/ConnectED/images/Logo.png"></div>
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Contact</a>
+        </div>
+        <div class="profile">
+            <a href="#">Login</a>
+            <a href="#">Sign Up</a>
+        </div>
+    </header>
+
+  <main id="main" class="section">
+    <div class="container">
+      <h1>Tech & Innovation Club</h1>
+      <p class="muted">We build things, break things (safely), and learn in public.</p>
+
+      <div class="spacer-md"></div>
+      <div class="grid grid-2">
+        <section class="card">
+          <h2>About</h2>
+          <p>From hackathons and robotics to machine learning reading groups, we’re a community of makers passionate about technology. Newcomers are welcome—no experience required.</p>
+          <ul class="list">
+            <li><span class="dot" aria-hidden="true"></span><span>Weekly coding nights every Wednesday</span></li>
+            <li><span class="dot" aria-hidden="true"></span><span>Monthly <span class="kbd">Build Nights</span> with cross-club collabs</span></li>
+            <li><span class="dot" aria-hidden="true"></span><span>Annual campus HackFest in spring</span></li>
+          </ul>
+        </section>
+
+        <section class="card">
+          <h2>Core Members</h2>
+          <div class="grid grid-2">
+            <div class="member">
+              <div class="avatar" aria-hidden="true"><img src="images/User pfp.jpeg" alt="profile"></div>
+              <div class="info"><strong class="name" style="color: #F5F3EE;">Jordan Lee</strong><p class="role">President</p></div>
+            </div>
+            <div class="member">
+              <div class="avatar" aria-hidden="true"><img src="images/User pfp.jpeg" alt="profile"></div>
+              <div class="info"><strong class="name" style="color: #F5F3EE;">Samira Khan</strong><p class="role">Vice President</p></div>
+            </div>
+            <div class="member">
+              <div class="avatar" aria-hidden="true"><img src="images/User pfp.jpeg" alt="profile"></div>
+              <div class="info"><strong class="name" style="color: #F5F3EE;">Diego Alvarez</strong><p class="role">Robotics Lead</p></div>
+            </div>
+            <div class="member">
+              <div class="avatar" aria-hidden="true"><img src="images/User pfp.jpeg" alt="profile"></div>
+              <div class="info"><strong class="name" style="color: #F5F3EE;">Mina Park</strong><p class="role">AI Reading Group</p></div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div class="spacer-md"></div>
+      <section class="card">
+        <h2>Events</h2>
+        <div class="grid grid-3">
+          <article class="card">
+            <img src="images/studentshackathon.jpeg" alt="Students coding at Spring HackFest" style="border-radius:.6rem; border:1px solid var(--border); margin-bottom:.5rem;">
+            <h3>Spring HackFest</h3>
+            <p class="muted">24-hour coding marathon with tracks in web, AI, and hardware.</p>
+          </article>
+          <article class="card">
+            <img src="images/robotech.jpeg" alt="Robots competing at a showcase" style="border-radius:.6rem; border:1px solid var(--border); margin-bottom:.5rem;">
+            <h3>Robotics Showcase</h3>
+            <p class="muted">Battle bots, line followers, and autonomous rover demos.</p>
+          </article>
+          <article class="card">
+            <img src="images/readingsession.jpeg" alt="Students discussing AI papers" style="border-radius:.6rem; border:1px solid var(--border); margin-bottom:.5rem;">
+            <h3>AI Reading Group</h3>
+            <p class="muted">Weekly sessions to unpack cutting-edge ML research papers.</p>
+          </article>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div style="display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap;">
+        <div>© <span id="year"></span> Campus Clubs</div>
+        <div class="muted">Tech makes, campus shakes.</div>
+      </div>
+    </div>
+  </footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear()
+
+       const navbar = document.getElementById('navbar');
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+        navbar.classList.add('blur');
+    } else {
+        navbar.classList.remove('blur');
+    }
+});
+  </script>
+</body>
+</html>

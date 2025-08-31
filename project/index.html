@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Campus Clubs — Home</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+      <header class="navbar" id="navbar">
+        <div class="logo"><img src="D:/FEE PROJECT/ConnectED/images/Logo.png"></div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Contact</a>
+        </div>
+        <div class="profile">
+            <a href="#">Login</a>
+            <a href="#">Sign Up</a>
+        </div>
+    </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-kicker">Explore • Connect • Create</div>
+        <h1 class="text-balance">A Vibrant Home For All Student Clubs And Events!</h1>
+        <p class="muted">Discover communities across technology, arts, music, and more. Find your people, build projects, and make campus memories.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="clubs.html">Browse all clubs</a>
+          <!-- <a class="btn btn-ghost" href="#gallery">See event highlights</a> -->
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="grid grid-3">
+          <article class="card">
+            <div class="card-title">
+              <h3>Tech & Innovation</h3>
+              <span class="badge">Popular</span>
+            </div>
+            <p class="muted">Hackathons, robotics, AI reading groups, and open-source meetups.</p>
+            <div class="spacer-sm"></div>
+            <a class="btn" href="club-tech.html">Explore Tech Club</a>
+          </article>
+          <article class="card">
+            <div class="card-title">
+              <h3>Arts Collective</h3>
+              <span class="badge">Creative</span>
+            </div>
+            <p class="muted">Exhibitions, workshops, and campus murals by student artists.</p>
+            <div class="spacer-sm"></div>
+            <a class="btn" href="club-art.html">Explore Art Club</a>
+          </article>
+          <article class="card">
+            <div class="card-title">
+              <h3>Music Society</h3>
+              <span class="badge">Live</span>
+            </div>
+            <p class="muted">Open mics, studio sessions, and live shows every month.</p>
+            <div class="spacer-sm"></div>
+            <a class="btn" href="club-music.html">Explore Music Club</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div style="display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap;">
+        <div>© <span id="year"></span> Campus Clubs</div>
+        <div class="muted">Made for students. Stay curious.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // small progressive enhancement for the year; not required for layout
+    document.getElementById('year').textContent = new Date().getFullYear()
+    const navbar = document.getElementById('navbar');
+
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+        navbar.classList.add('blur');
+    } else {
+        navbar.classList.remove('blur');
+    }
+});
+  </script>
+</body>
+</html>
