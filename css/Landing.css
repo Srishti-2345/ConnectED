@@ -269,7 +269,7 @@ background:#254D70;
     html {
       scroll-behavior: smooth;
     }
-    footer {
+     footer {
       background:#254D70; /* dark navy */
       color: black;
       padding: 50px 20px 20px;
@@ -294,6 +294,8 @@ background:#254D70;
       font-size: 20px;
       margin-bottom: 12px;
       color:white
+
+      
     }
     .footer-brand h2 span {
       margin-right: 8px;
@@ -305,6 +307,7 @@ background:#254D70;
       line-height: 1.6;
       margin-bottom: 15px;
       color: white;
+      text-align: left;
     }
 .head{
   color:black;
@@ -349,6 +352,7 @@ background:#254D70;
       text-decoration: none;
       margin-bottom: 8px;
       transition: 0.3s;
+      text-align: centre;
     }
     .footer-links a:hover {
       color: #fff;
@@ -380,7 +384,6 @@ background:#254D70;
       align-items: center;
       font-size: 14px;
     }
-
     /* Hero */
     .hero {
       display: grid;
