@@ -9,8 +9,21 @@
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
+  <header class="navbar" id="navbar">
+        <div class="logo"><img src="images/Logo.png"></div>
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="./aboutus.html">About</a>
+            
+            <a href="#">Contact</a>
+        </div>
+        <div class="profile">
+            <a href="./loginsign.html">Login</a>
+            <!-- <a href="./loginsign.html">Sign Up</a> -->
+        </div>
+    </header>
 
-    <header class="navbar" id="navbar">
+    <!-- <header class="navbar" id="navbar">
         <div class="logo"><img src="D:/FEE PROJECT/ConnectED/images/Logo.png"></div>
         <div class="nav-links">
             <a href="#">Home</a>
@@ -22,7 +35,7 @@
             <a href="#">Login</a>
             <a href="#">Sign Up</a>
         </div>
-    </header>
+    </header> -->
 
   <main id="main" class="section">
     <div class="container">
@@ -105,15 +118,61 @@
       </div>
     </div>
   </main>
+  <footer>
+    <div class="footer-container">
+      
+       
+      <div class="footer-brand">
+        <h2><span>💜</span> CONNECTED</h2>
+        <p>
+          Where campus friendships begin! Connect with like-minded students, 
+          share amazing memories, and build lasting relationships that go beyond graduation. 💕
+        </p>
+        <div class="social">
+          <a href="#">f</a>
+          <a href="#">ig</a>
+          <a href="#">tw</a>
+        </div>
+      </div>
 
-  <footer class="site-footer">
+      <div class="footer-links">
+        <h3>Features</h3>
+        <a href="#">Profile Matching</a>
+        <a href="#">Video Calls</a>
+        <a href="#">Memory Sharing</a>
+        <a href="#">Communities</a>
+      </div>
+
+      
+      <div class="footer-links">
+        <h3>Support</h3>
+        <a href="#">Help Center</a>
+        <a href="#">Safety Guidelines</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+    </div>
+
+    
+    <div class="footer-bottom">
+      <p>© 2025 CONNECTED. All rights reserved. Made with <span>💕</span> for students.</p>
+      
+      <div class="contact">
+        <p>📧 hello@connected.com</p>
+        <p>📞 1-800-CAMPUS</p>
+       
+      </div>
+    </div>
+  </footer>
+
+  <!-- <footer class="site-footer">
     <div class="container">
       <div style="display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap;">
         <div>© <span id="year"></span> Campus Clubs</div>
         <div class="muted">Questions? Find us at the Student Union.</div>
       </div>
     </div>
-  </footer>
+  </footer> -->
   <script>document.getElementById('year').textContent = new Date().getFullYear()
 
        const navbar = document.getElementById('navbar');
