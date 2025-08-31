@@ -30,6 +30,11 @@
       <p class="muted">Browse active student organizations and find your community.</p>
       <div class="spacer-md"></div>
 
+
+      <div>
+      <input placeholder="Find your community..." type="text" name="text" class="input" id="search">
+      </div>
+
       <div class="grid grid-3">
         <article class="card">
           <img src="images/techclub.jpeg" alt="Students coding together at laptops" style="border-radius:.6rem; border:1px solid var(--border); margin-bottom:.75rem;">
@@ -120,6 +125,18 @@ window.addEventListener('scroll', () => {
         navbar.classList.remove('blur');
     }
 });
+
+const searchInput = document.getElementById("search");
+const cards = document.querySelectorAll(".card");
+
+searchInput.addEventListener("keyup", () => {
+  const query = searchInput.value.toLowerCase();
+  cards.forEach(card => {
+    const text = card.innerText.toLowerCase();
+    card.style.display = text.includes(query) ? "block" : "none";
+  });
+});
+
   </script>
 </body>
 </html>
