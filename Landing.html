@@ -10,6 +10,104 @@
   <script src="https://unpkg.com/lucide@latest"></script>
 
     <link rel="stylesheet" href="css/Landing.css">
+    <style>
+      /* Footer */
+.footer {
+  background: var(--bg-dark);
+  color: white;
+  padding: 3rem 0 1rem;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: var(--spacing-2xl);
+  margin-bottom: var(--spacing-xl);
+}
+
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: white;
+}
+
+.footer-brand p {
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.footer-brand .social-links {
+  display: flex;
+  gap: var(--spacing-md);
+}
+
+.footer-brand .social-link {
+  color: var(--text-muted);
+  text-decoration: none;
+  padding: var(--spacing-xs) var(--spacing-md);
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.footer-brand .social-link:hover {
+  background: var(--secondary-color);
+  color: white;
+  transform: translateY(-2px);
+}
+
+.footer-links {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-lg);
+}
+
+.footer-column h4 {
+  margin-bottom: var(--spacing-md);
+  color: white;
+  font-weight: 600;
+}
+
+.footer-column ul {
+  list-style: none;
+}
+
+.footer-column ul li {
+  margin-bottom: var(--spacing-xs);
+}
+
+.footer-column ul li a {
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-size: 0.95rem;
+}
+
+.footer-column ul li a:hover {
+  color: var(--secondary-color);
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: var(--spacing-lg);
+  text-align: center;
+}
+
+.footer-bottom p {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+    </style>
 </head>
 <body>
     <header class="navbar" id="navbar">
@@ -243,49 +341,58 @@
   </div>
 
 
-    <footer>
-    <div class="footer-container">
-      
-       
-      <div class="footer-brand">
-        <h2><span>💜</span> CONNECTED</h2>
-        <p>
-          Where campus friendships begin! Connect with like-minded students, 
-          share amazing memories, and build lasting relationships that go beyond graduation. 💕
-        </p>
-        <div class="social">
-          <a href="#">f</a>
-          <a href="#">ig</a>
-          <a href="#">tw</a>
+   <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <span class="logo-icon">🎓</span>
+            <span class="logo-text">Campus Connected</span>
+          </div>
+          <p>Empowering campus communities through innovative technology solutions that bring students, faculty, and resources together.</p>
+          <div class="social-links">
+            <a href="#" class="social-link">Facebook</a>
+            <a href="#" class="social-link">Twitter</a>
+            <a href="#" class="social-link">LinkedIn</a>
+            <a href="#" class="social-link">Instagram</a>
+          </div>
+        </div>
+
+        <div class="footer-links">
+          <div class="footer-column">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="#about">About Us</a></li>
+              <li><a href="#team">Our Team</a></li>
+              <li><a href="#services">Services</a></li>
+              <li><a href="#">Careers</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h4>Support</h4>
+            <ul>
+              <li><a href="#">Help Center</a></li>
+              <li><a href="#">Documentation</a></li>
+              <li><a href="#">API Reference</a></li>
+              <li><a href="#">Status Page</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h4>Legal</h4>
+            <ul>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Terms of Service</a></li>
+              <li><a href="#">Cookie Policy</a></li>
+              <li><a href="#">GDPR</a></li>
+            </ul>
+          </div>
         </div>
       </div>
 
-      <div class="footer-links">
-        <h3>Features</h3>
-        <a href="#">Profile Matching</a>
-        <a href="#">Video Calls</a>
-        <a href="#">Memory Sharing</a>
-        <a href="#">Communities</a>
-      </div>
-
-      
-      <div class="footer-links">
-        <h3>Support</h3>
-        <a href="#">Help Center</a>
-        <a href="#">Safety Guidelines</a>
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms of Service</a>
-      </div>
-    </div>
-
-    
-    <div class="footer-bottom">
-      <p>© 2025 CONNECTED. All rights reserved. Made with <span>💕</span> for students.</p>
-      
-      <div class="contact">
-        <p>📧 hello@connected.com</p>
-        <p>📞 1-800-CAMPUS</p>
-       
+      <div class="footer-bottom">
+        <p>&copy; 2025 Campus Connected. All rights reserved.</p>
       </div>
     </div>
   </footer>
