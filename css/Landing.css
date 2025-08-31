@@ -7,7 +7,7 @@
 
 body {
   font-family: Arial, sans-serif;
-  background-color: #DDDAD0;
+  
   color:white;
 }
 
@@ -20,8 +20,8 @@ body {
   align-items: center;
   padding: 1rem 2rem;
   height: 80px;
-  background-color: transparent;
-  transition: backdrop-filter 0.3s ease, background-color 0.3s ease;
+background:#254D70;
+
   z-index: 100;
 }
 .navbar .logo img {
@@ -31,7 +31,7 @@ body {
 .profile a {
   margin-left: 1.5rem;
   text-decoration: none;
-  color:black;
+  color:white;
   font-weight: 500;
 }
 .navbar.blur {
@@ -264,29 +264,14 @@ body {
     }
 
     /* Custom scrollbar */
-    ::-webkit-scrollbar {
-      width: 12px;
-    }
-
-    ::-webkit-scrollbar-track {
-      background: linear-gradient(to bottom, #fce7f3, #e0e7ff);
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background: linear-gradient(to bottom, #f472b6, #a855f7);
-      border-radius: 6px;
-    }
-
-    ::-webkit-scrollbar-thumb:hover {
-      background: linear-gradient(to bottom, #ec4899, #9333ea);
-    }
+    
 
     html {
       scroll-behavior: smooth;
     }
     footer {
-      background: #0f172a; /* dark navy */
-      color: #fff;
+      background:#254D70; /* dark navy */
+      color: black;
       padding: 50px 20px 20px;
     }
 
@@ -308,17 +293,18 @@ body {
       align-items: center;
       font-size: 20px;
       margin-bottom: 12px;
+      color:white
     }
     .footer-brand h2 span {
       margin-right: 8px;
       font-size: 22px;
-      color: #ff5edc;
+      color: black;
     }
     .footer-brand p {
       font-size: 14px;
       line-height: 1.6;
       margin-bottom: 15px;
-      color: #cbd5e1;
+      color: white;
     }
 .head{
   color:black;
@@ -354,6 +340,7 @@ body {
     .footer-links h3 {
       font-size: 16px;
       margin-bottom: 12px;
+      color:white;
     }
     .footer-links a {
       display: block;
@@ -384,6 +371,8 @@ body {
     .footer-bottom span {
       color: #ff5edc;
     }
+   
+    
 
     .contact {
       display: flex;
@@ -399,11 +388,13 @@ body {
       align-items: center;
       gap: 40px;
       padding: 60px 10%;
+      background-color:#C0C0C0;
+      height:650px;
     }
     .tagline {
       display: inline-block;
-      background: #ffe4ef;
-      color: #e91e63;
+      background: #e8eaff;
+      color: #393E46;
       padding: 6px 16px;
       border-radius: 20px;
       font-size: 14px;
@@ -414,19 +405,19 @@ body {
       font-weight: 800;
       line-height: 1.2;
       margin-bottom: 20px;
-      color:#E4004B;
+      color:#393E46;
     }
     .hero h2 span { color:#0D1164; }
     .hero p {
       font-size: 18px;
-      color: #666;
+      color: #393E46;
       margin-bottom: 25px;
     }
     .buttons { display: flex; gap: 15px; margin-bottom: 40px; }
     .stats { display: flex; gap: 40px; }
     .stat { text-align: center; }
     .stat p:first-child {
-      font-size: 22px; font-weight: bold; color: #e91e63;
+      font-size: 22px; font-weight: bold; color: #393E46;
     }
     .stat p:last-child { color: #777; }
 

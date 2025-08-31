@@ -14,7 +14,7 @@
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: #DDDAD0;
+            background: #C0C0C0;
             color: #334155;
             line-height: 1.6;
             min-height: 100vh;
@@ -29,8 +29,8 @@
   align-items: center;
   padding: 1rem 2rem;
   height: 80px;
-  background-color: transparent;
-  transition: backdrop-filter 0.3s ease, background-color 0.3s ease;
+background:#254D70;
+
   z-index: 100;
 }
 .navbar .logo img {
@@ -40,7 +40,7 @@
 .profile a {
   margin-left: 1.5rem;
   text-decoration: none;
-  color:black;
+  color:white;
   font-weight: 500;
 }
 .navbar.blur {
@@ -49,10 +49,11 @@
 }
 
 
+
         .bar-links {
             display: flex;
             gap: 8px;
-            margin-left: 39%;
+            margin-left: 35%;
         }
 
         .bar-link {
@@ -209,7 +210,7 @@
         .card-header {
             position: relative;
             height: 120px;
-            background: #dcfce7;
+            background: linear-gradient(to bottom right, #F0F8FF, #AFDCEB, #CAE9F5);
         }
 
         .student-avatar {
@@ -302,7 +303,7 @@
         }
 
         .connect-btn.primary {
-            background: #1e40af;
+            background: #254D70;
             color: white;
         }
 
@@ -634,6 +635,9 @@
             font-weight: 500;
             animation: slideIn 0.3s ease;
         }
+        button{
+            background-color: #254D70;
+        }
 
         @keyframes slideIn {
             from {
@@ -646,7 +650,7 @@
             }
         }
         footer {
-      background: #0f172a; /* dark navy */
+      background: #254D70; /* dark navy */
       color: #fff;
       padding: 50px 20px 20px;
     }
@@ -759,29 +763,22 @@
   <header class="navbar" id="navbar">
         <div class="logo"><img src="images/Logo.png"></div>
         <div class="nav-links">
-            <a href="#">Home</a>
-            <a href="#">About</a>
-            <a href="#">Services</a>
+            <a href="./Landing.html">Home</a>
+            <a href="./aboutus.html">About</a>
+            
             <a href="#">Contact</a>
         </div>
         <div class="profile">
-            <a href="#">Login</a>
-            <a href="#">Sign Up</a>
+            <a href="./loginsign.html">Login</a>
+            <!-- <a href="./loginsign.html">Sign Up</a> -->
         </div>
     </header>
     
             
-            <div class="bar-links">
-                <a href="#" class="bar-link active" d> Discover</a>
-                <a href="#" class="bar-link" data-tab="requests">
-                     Requests
-                    <span class="notification-badge" id="requestBadge">3</span>
-                </a>
-                <a href="#" class="bar-link" data-tab="connections"> My Network</a>
-            </div>
             
             
-        </div>
+            
+        
     </nav>
 
     <main class="main-content">
@@ -819,6 +816,16 @@
                     </select>
                 </div>
             </div>
+            <div class="bar-links">
+                <a href="#" class="bar-link active" d> Discover</a>
+                <a href="#" class="bar-link" data-tab="requests">
+                     Requests
+                    <span class="notification-badge" id="requestBadge">3</span>
+                </a>
+                <a href="#" class="bar-link" data-tab="connections"> My Network</a>
+            </div>
+            <br>
+            <br>
 
             <div class="students-grid" id="studentsGrid">
                 <!-- Student cards will be populated by JavaScript -->
