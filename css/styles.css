@@ -1,11 +1,4 @@
-/* 
-  College Clubs - Global Styles
-  Color system (5 total):
-  - Primary: Electric Blue #3b82f6
-  - Accent: Acid Green #a3e635
-  - Neutrals: Near-Black #0a0a0a, Off-White #fafafa, Gray #a1a1aa
-  No gradients. Two fonts: Playfair Display (headings), Inter (body).
-*/
+
 
 :root{
   --bg: #DDDAD0;
@@ -173,8 +166,6 @@ p{ margin: 0 0 1rem 0;
   border-radius: 50%;
 
 }
-
-
 
 .member .info {
   display: flex;
