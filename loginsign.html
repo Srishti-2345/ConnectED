@@ -1,0 +1,942 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Campus Connected - Sign In</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        /* Campus Color Palette */
+        --primary-blue: #1e40af;
+        --primary-blue-light: #3b82f6;
+        --primary-blue-dark: #1e3a8a;
+        --accent-green: #059669;
+        --accent-green-light: #10b981;
+        --accent-orange: #ea580c;
+        --accent-orange-light: #f97316;
+        
+        /* Neutral Colors */
+        --gray-50: #f9fafb;
+        --gray-100: #f3f4f6;
+        --gray-200: #e5e7eb;
+        --gray-300: #d1d5db;
+        --gray-400: #9ca3af;
+        --gray-500: #6b7280;
+        --gray-600: #4b5563;
+        --gray-700: #374151;
+        --gray-800: #1f2937;
+        --gray-900: #111827;
+        
+        /* Status Colors */
+        --success: #10b981;
+        --warning: #f59e0b;
+        --error: #ef4444;
+        
+        /* Spacing System */
+        --space-1: 0.25rem;
+        --space-2: 0.5rem;
+        --space-3: 0.75rem;
+        --space-4: 1rem;
+        --space-5: 1.25rem;
+        --space-6: 1.5rem;
+        --space-8: 2rem;
+        --space-10: 2.5rem;
+        --space-12: 3rem;
+        --space-16: 4rem;
+        
+        /* Typography */
+        --font-size-sm: 0.875rem;
+        --font-size-base: 1rem;
+        --font-size-lg: 1.125rem;
+        --font-size-xl: 1.25rem;
+        --font-size-2xl: 1.5rem;
+        --font-size-3xl: 1.875rem;
+        --font-size-4xl: 2.25rem;
+        
+        --line-height-tight: 1.2;
+        --line-height-normal: 1.5;
+        --line-height-relaxed: 1.6;
+        
+        /* Shadows */
+        --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+        --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+        --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        
+        /* Transitions */
+        --transition-fast: 150ms ease-in-out;
+        --transition-normal: 300ms ease-in-out;
+        --transition-slow: 500ms ease-in-out;
+      }
+
+      body {
+        font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        line-height: var(--line-height-normal);
+        color: var(--gray-800);
+        background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-green) 100%);
+        min-height: 100vh;
+        overflow-x: hidden;
+      }
+
+      .auth-container {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: var(--space-4);
+        position: relative;
+      }
+
+      .auth-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('https://www.chitkara.edu.in/wp-content/uploads/2023/04/Web-2020-Head-60.webp') center/cover;
+        opacity: 0.1;
+        z-index: 0;
+      }
+
+      .auth-card {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(20px);
+        border-radius: 24px;
+        padding: var(--space-8);
+        box-shadow: var(--shadow-xl);
+        width: 100%;
+        max-width: 480px;
+        position: relative;
+        z-index: 1;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      .auth-header {
+        text-align: center;
+        margin-bottom: var(--space-8);
+      }
+
+      .logo {
+        font-size: var(--font-size-3xl);
+        font-weight: 700;
+        background: linear-gradient(135deg, var(--primary-blue), var(--accent-green));
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: var(--space-2);
+      }
+
+      .subtitle {
+        color: var(--gray-600);
+        font-size: var(--font-size-base);
+        font-weight: 400;
+      }
+
+      .form-tabs {
+        display: flex;
+        background: var(--gray-100);
+        border-radius: 12px;
+        padding: var(--space-1);
+        margin-bottom: var(--space-8);
+      }
+
+      .tab-button {
+        flex: 1;
+        padding: var(--space-3) var(--space-4);
+        border: none;
+        background: transparent;
+        border-radius: 8px;
+        font-weight: 500;
+        color: var(--gray-600);
+        cursor: pointer;
+        transition: all var(--transition-fast);
+        font-size: var(--font-size-sm);
+      }
+
+      .tab-button.active {
+        background: white;
+        color: var(--primary-blue);
+        box-shadow: var(--shadow-sm);
+      }
+
+      .tab-button:hover:not(.active) {
+        color: var(--gray-800);
+      }
+
+      .auth-form {
+        display: none;
+        animation: slideIn 0.3s ease-out;
+      }
+
+      .auth-form.active {
+        display: block;
+      }
+
+      .input-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-4);
+        margin-bottom: var(--space-6);
+      }
+
+      .input-group {
+        margin-bottom: var(--space-6);
+        position: relative;
+      }
+
+      .input-group.error input {
+        border-color: var(--error);
+        box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+      }
+
+      .input-group label {
+        display: block;
+        margin-bottom: var(--space-2);
+        font-weight: 500;
+        color: var(--gray-700);
+        font-size: var(--font-size-sm);
+      }
+
+      .input-group input {
+        width: 100%;
+        padding: var(--space-3) var(--space-4);
+        border: 2px solid var(--gray-200);
+        border-radius: 12px;
+        font-size: var(--font-size-base);
+        transition: all var(--transition-fast);
+        background: white;
+      }
+
+      .input-group input:focus {
+        outline: none;
+        border-color: var(--primary-blue);
+        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+      }
+
+      .input-group input::placeholder {
+        color: var(--gray-400);
+      }
+
+      .error-message {
+        display: block;
+        color: var(--error);
+        font-size: 0.75rem;
+        margin-top: var(--space-1);
+        min-height: 1rem;
+      }
+
+      .password-strength {
+        margin-top: var(--space-2);
+        font-size: 0.75rem;
+        font-weight: 500;
+        padding: var(--space-1) var(--space-2);
+        border-radius: 4px;
+        text-align: center;
+        transition: all var(--transition-fast);
+      }
+
+      .password-strength.weak {
+        background: rgba(239, 68, 68, 0.1);
+        color: var(--error);
+      }
+
+      .password-strength.fair {
+        background: rgba(245, 158, 11, 0.1);
+        color: var(--warning);
+      }
+
+      .password-strength.good {
+        background: rgba(16, 185, 129, 0.1);
+        color: var(--success);
+      }
+
+      .password-strength.strong {
+        background: rgba(34, 197, 94, 0.1);
+        color: #22c55e;
+      }
+
+      .form-options {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: var(--space-6);
+      }
+
+      .checkbox-container {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        font-size: var(--font-size-sm);
+        color: var(--gray-600);
+        user-select: none;
+      }
+
+      .checkbox-container input[type="checkbox"] {
+        display: none;
+      }
+
+      .checkmark {
+        width: 18px;
+        height: 18px;
+        border: 2px solid var(--gray-300);
+        border-radius: 4px;
+        margin-right: var(--space-2);
+        position: relative;
+        transition: all var(--transition-fast);
+      }
+
+      .checkbox-container input[type="checkbox"]:checked + .checkmark {
+        background: var(--primary-blue);
+        border-color: var(--primary-blue);
+      }
+
+      .checkbox-container input[type="checkbox"]:checked + .checkmark::after {
+        content: '✓';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        font-size: 12px;
+        font-weight: bold;
+      }
+
+      .forgot-password {
+        color: var(--primary-blue);
+        text-decoration: none;
+        font-size: var(--font-size-sm);
+        font-weight: 500;
+        transition: color var(--transition-fast);
+      }
+
+      .forgot-password:hover {
+        color: var(--primary-blue-dark);
+      }
+
+      .terms-link {
+        color: var(--primary-blue);
+        text-decoration: none;
+        font-weight: 500;
+      }
+
+      .terms-link:hover {
+        text-decoration: underline;
+      }
+
+      .submit-button {
+        width: 100%;
+        padding: var(--space-4);
+        background: linear-gradient(135deg, var(--primary-blue), var(--primary-blue-light));
+        color: white;
+        border: none;
+        border-radius: 12px;
+        font-size: var(--font-size-base);
+        font-weight: 600;
+        cursor: pointer;
+        transition: all var(--transition-fast);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .submit-button:hover:not(:disabled) {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-lg);
+      }
+
+      .submit-button:active {
+        transform: translateY(0);
+      }
+
+      .submit-button:disabled {
+        opacity: 0.7;
+        cursor: not-allowed;
+        transform: none;
+      }
+
+      .submit-button.loading {
+        color: transparent;
+      }
+
+      .spinner {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 20px;
+        height: 20px;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        border-top: 2px solid white;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+      }
+
+      .auth-footer {
+        text-align: center;
+        margin-top: var(--space-8);
+        padding-top: var(--space-6);
+        border-top: 1px solid var(--gray-200);
+      }
+
+      .auth-footer p {
+        color: var(--gray-500);
+        font-size: 0.75rem;
+      }
+
+      /* Animations */
+      @keyframes slideIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes spin {
+        0% {
+          transform: translate(-50%, -50%) rotate(0deg);
+        }
+        100% {
+          transform: translate(-50%, -50%) rotate(360deg);
+        }
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .auth-container {
+          padding: var(--space-4);
+        }
+        
+        .auth-card {
+          padding: var(--space-6);
+          border-radius: 16px;
+          margin: var(--space-4);
+        }
+        
+        .input-row {
+          grid-template-columns: 1fr;
+          gap: 0;
+        }
+        
+        .form-options {
+          flex-direction: column;
+          gap: var(--space-4);
+          align-items: flex-start;
+        }
+        
+        .logo {
+          font-size: var(--font-size-2xl);
+        }
+        
+        .auth-header {
+          margin-bottom: var(--space-6);
+        }
+      }
+
+      @media (max-width: 480px) {
+        .auth-container {
+          padding: var(--space-2);
+        }
+        
+        .auth-card {
+          padding: var(--space-4);
+          margin: var(--space-2);
+        }
+        
+        .form-tabs {
+          margin-bottom: var(--space-6);
+        }
+        
+        .tab-button {
+          padding: var(--space-2) var(--space-3);
+          font-size: 0.75rem;
+        }
+      }
+
+      @media (min-width: 1024px) {
+        .auth-card {
+          max-width: 520px;
+          padding: var(--space-10);
+        }
+        
+        .auth-header {
+          margin-bottom: var(--space-10);
+        }
+        
+        .logo {
+          font-size: var(--font-size-4xl);
+        }
+      }
+
+      /* Focus styles for accessibility */
+      .tab-button:focus-visible,
+      .submit-button:focus-visible,
+      input:focus-visible {
+        outline: 2px solid var(--primary-blue);
+        outline-offset: 2px;
+      }
+
+      /* Smooth transitions for better UX */
+      .input-group,
+      .submit-button,
+      .tab-button,
+      .checkbox-container {
+        transition: all var(--transition-fast);
+      }
+
+      /* Enhanced visual feedback */
+      .submit-button::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+        transition: left var(--transition-slow);
+      }
+
+      .submit-button:hover::before {
+        left: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="auth-container">
+      <div class="auth-background"></div>
+      <div class="auth-card">
+        <div class="auth-header">
+          <h1 class="logo">Campus Connected</h1>
+          <p class="subtitle">Connect with your university community</p>
+        </div>
+        
+        <div class="form-tabs">
+          <button class="tab-button active" data-tab="login">Sign In</button>
+          <button class="tab-button" data-tab="signup">Sign Up</button>
+        </div>
+
+        <!-- Login Form -->
+        <form class="auth-form active" id="login-form">
+          <div class="input-group">
+            <label for="login-email">Email Address</label>
+            <input type="email" id="login-email" name="email" placeholder="your.email@university.edu" required>
+            <span class="error-message" id="login-email-error"></span>
+          </div>
+          
+          <div class="input-group">
+            <label for="login-password">Password</label>
+            <input type="password" id="login-password" name="password" placeholder="••••••••" required>
+            <span class="error-message" id="login-password-error"></span>
+          </div>
+
+          <div class="form-options">
+            <label class="checkbox-container">
+              <input type="checkbox" id="remember-me">
+              <span class="checkmark"></span>
+              Remember me
+            </label>
+            <a href="#" class="forgot-password">Forgot password?</a>
+          </div>
+
+          <button type="submit" class="submit-button">Sign In</button>
+        </form>
+
+        <!-- Sign Up Form -->
+        <form class="auth-form" id="signup-form">
+          <div class="input-row">
+            <div class="input-group">
+              <label for="signup-firstname">First Name</label>
+              <input type="text" id="signup-firstname" name="firstname" placeholder="John" required>
+              <span class="error-message" id="signup-firstname-error"></span>
+            </div>
+            <div class="input-group">
+              <label for="signup-lastname">Last Name</label>
+              <input type="text" id="signup-lastname" name="lastname" placeholder="Doe" required>
+              <span class="error-message" id="signup-lastname-error"></span>
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label for="signup-email">University Email</label>
+            <input type="email" id="signup-email" name="email" placeholder="john.doe@university.edu" required>
+            <span class="error-message" id="signup-email-error"></span>
+          </div>
+
+          <div class="input-group">
+            <label for="signup-student-id">Student ID</label>
+            <input type="text" id="signup-student-id" name="studentId" placeholder="STU123456" required>
+            <span class="error-message" id="signup-student-id-error"></span>
+          </div>
+
+          <div class="input-group">
+            <label for="signup-password">Password</label>
+            <input type="password" id="signup-password" name="password" placeholder="••••••••" required>
+            <span class="error-message" id="signup-password-error"></span>
+            <div class="password-strength" id="password-strength"></div>
+          </div>
+
+          <div class="input-group">
+            <label for="signup-confirm-password">Confirm Password</label>
+            <input type="password" id="signup-confirm-password" name="confirmPassword" placeholder="••••••••" required>
+            <span class="error-message" id="signup-confirm-password-error"></span>
+          </div>
+
+          <label class="checkbox-container">
+            <input type="checkbox" id="terms-agreement" required>
+            <span class="checkmark"></span>
+            I agree to the <a href="#" class="terms-link">Terms of Service</a> and <a href="#" class="terms-link">Privacy Policy</a>
+          </label>
+
+          <button type="submit" class="submit-button">Create Account</button>
+        </form>
+
+        <div class="auth-footer">
+          <p>© 2025 Campus Connected. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Initialize the authentication functionality
+      initializeAuth()
+
+      function initializeAuth() {
+        // Tab switching functionality
+        const tabButtons = document.querySelectorAll('.tab-button')
+        const forms = document.querySelectorAll('.auth-form')
+        
+        tabButtons.forEach(button => {
+          button.addEventListener('click', () => {
+            const targetTab = button.dataset.tab
+            
+            // Update active tab
+            tabButtons.forEach(btn => btn.classList.remove('active'))
+            button.classList.add('active')
+            
+            // Show corresponding form
+            forms.forEach(form => {
+              form.classList.remove('active')
+              if (form.id === `${targetTab}-form`) {
+                form.classList.add('active')
+              }
+            })
+          })
+        })
+
+        // Form validation and submission
+        setupFormValidation()
+        setupPasswordStrength()
+      }
+
+      function setupFormValidation() {
+        const loginForm = document.getElementById('login-form')
+        const signupForm = document.getElementById('signup-form')
+
+        // Login form validation
+        loginForm.addEventListener('submit', (e) => {
+          e.preventDefault()
+          if (validateLoginForm()) {
+            handleLogin()
+          }
+        })
+
+        // Sign up form validation
+        signupForm.addEventListener('submit', (e) => {
+          e.preventDefault()
+          if (validateSignupForm()) {
+            handleSignup()
+          }
+        })
+
+        // Real-time validation
+        setupRealTimeValidation()
+      }
+
+      function setupRealTimeValidation() {
+        // Email validation
+        const emailInputs = document.querySelectorAll('input[type="email"]')
+        emailInputs.forEach(input => {
+          input.addEventListener('blur', validateEmail)
+          input.addEventListener('input', clearError)
+        })
+
+        // Password validation
+        const passwordInputs = document.querySelectorAll('input[type="password"]')
+        passwordInputs.forEach(input => {
+          input.addEventListener('blur', validatePassword)
+          input.addEventListener('input', clearError)
+        })
+
+        // Name validation
+        const nameInputs = document.querySelectorAll('#signup-firstname, #signup-lastname')
+        nameInputs.forEach(input => {
+          input.addEventListener('blur', validateName)
+          input.addEventListener('input', clearError)
+        })
+
+        // Student ID validation
+        const studentIdInput = document.getElementById('signup-student-id')
+        if (studentIdInput) {
+          studentIdInput.addEventListener('blur', validateStudentId)
+          studentIdInput.addEventListener('input', clearError)
+        }
+
+        // Confirm password validation
+        const confirmPasswordInput = document.getElementById('signup-confirm-password')
+        if (confirmPasswordInput) {
+          confirmPasswordInput.addEventListener('blur', validateConfirmPassword)
+          confirmPasswordInput.addEventListener('input', clearError)
+        }
+      }
+
+      function validateEmail(e) {
+        const input = e.target
+        const email = input.value.trim()
+        const errorElement = document.getElementById(`${input.id}-error`)
+        
+        if (!email) {
+          showError(errorElement, 'Email is required')
+          return false
+        }
+        
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+        if (!emailRegex.test(email)) {
+          showError(errorElement, 'Please enter a valid email address')
+          return false
+        }
+        
+        // Check for university email domain (optional enhancement)
+        if (input.id === 'signup-email' && !email.endsWith('@chitkara.edu.in')) {
+          showError(errorElement, 'Please use your Chitkara University email address (@chitkara.edu.in)')
+          return false
+        }
+        
+        clearError(e)
+        return true
+      }
+
+      function validatePassword(e) {
+        const input = e.target
+        const password = input.value
+        const errorElement = document.getElementById(`${input.id}-error`)
+        
+        if (!password) {
+          showError(errorElement, 'Password is required')
+          return false
+        }
+        
+        if (input.id === 'signup-password') {
+          if (password.length < 8) {
+            showError(errorElement, 'Password must be at least 8 characters long')
+            return false
+          }
+          
+          if (!/(?=.*[a-z])(?=.*[A-Z])(?=.*\d)/.test(password)) {
+            showError(errorElement, 'Password must contain uppercase, lowercase, and number')
+            return false
+          }
+        }
+        
+        clearError(e)
+        return true
+      }
+
+      function validateName(e) {
+        const input = e.target
+        const name = input.value.trim()
+        const errorElement = document.getElementById(`${input.id}-error`)
+        
+        if (!name) {
+          showError(errorElement, 'This field is required')
+          return false
+        }
+        
+        if (name.length < 2) {
+          showError(errorElement, 'Name must be at least 2 characters long')
+          return false
+        }
+        
+        clearError(e)
+        return true
+      }
+
+      function validateStudentId(e) {
+        const input = e.target
+        const studentId = input.value.trim()
+        const errorElement = document.getElementById(`${input.id}-error`)
+        
+        if (!studentId) {
+          showError(errorElement, 'Student ID is required')
+          return false
+        }
+        
+        if (studentId.length < 6) {
+          showError(errorElement, 'Student ID must be at least 6 characters')
+          return false
+        }
+        
+        clearError(e)
+        return true
+      }
+
+      function validateConfirmPassword(e) {
+        const confirmPassword = e.target.value
+        const password = document.getElementById('signup-password').value
+        const errorElement = document.getElementById('signup-confirm-password-error')
+        
+        if (!confirmPassword) {
+          showError(errorElement, 'Please confirm your password')
+          return false
+        }
+        
+        if (confirmPassword !== password) {
+          showError(errorElement, 'Passwords do not match')
+          return false
+        }
+        
+        clearError(e)
+        return true
+      }
+
+      function setupPasswordStrength() {
+        const passwordInput = document.getElementById('signup-password')
+        const strengthIndicator = document.getElementById('password-strength')
+        
+        passwordInput.addEventListener('input', (e) => {
+          const password = e.target.value
+          const strength = calculatePasswordStrength(password)
+          updatePasswordStrength(strengthIndicator, strength)
+        })
+      }
+
+      function calculatePasswordStrength(password) {
+        let score = 0
+        if (password.length >= 8) score++
+        if (password.length >= 12) score++
+        if (/[a-z]/.test(password)) score++
+        if (/[A-Z]/.test(password)) score++
+        if (/\d/.test(password)) score++
+        if (/[^A-Za-z0-9]/.test(password)) score++
+        
+        return score
+      }
+
+      function updatePasswordStrength(element, strength) {
+        const levels = ['', 'weak', 'fair', 'good', 'strong']
+        const texts = ['', 'Weak', 'Fair', 'Good', 'Strong']
+        
+        element.className = `password-strength ${levels[Math.min(strength, 4)]}`
+        element.textContent = strength > 0 ? texts[Math.min(strength, 4)] : ''
+      }
+
+      function validateLoginForm() {
+        const email = document.getElementById('login-email')
+        const password = document.getElementById('login-password')
+        
+        const emailValid = validateEmail({ target: email })
+        const passwordValid = validatePassword({ target: password })
+        
+        return emailValid && passwordValid
+      }
+
+      function validateSignupForm() {
+        const firstname = document.getElementById('signup-firstname')
+        const lastname = document.getElementById('signup-lastname')
+        const email = document.getElementById('signup-email')
+        const studentId = document.getElementById('signup-student-id')
+        const password = document.getElementById('signup-password')
+        const confirmPassword = document.getElementById('signup-confirm-password')
+        const termsAgreement = document.getElementById('terms-agreement')
+        
+        const firstnameValid = validateName({ target: firstname })
+        const lastnameValid = validateName({ target: lastname })
+        const emailValid = validateEmail({ target: email })
+        const studentIdValid = validateStudentId({ target: studentId })
+        const passwordValid = validatePassword({ target: password })
+        const confirmPasswordValid = validateConfirmPassword({ target: confirmPassword })
+        
+        if (!termsAgreement.checked) {
+          alert('Please accept the Terms of Service and Privacy Policy')
+          return false
+        }
+        
+        return firstnameValid && lastnameValid && emailValid && studentIdValid && passwordValid && confirmPasswordValid
+      }
+
+      function handleLogin() {
+        const email = document.getElementById('login-email').value
+        const password = document.getElementById('login-password').value
+        const rememberMe = document.getElementById('remember-me').checked
+        
+        // Simulate login process
+        showLoadingState(document.querySelector('#login-form .submit-button'))
+        
+        setTimeout(() => {
+          alert(`Welcome back! Logging in ${email}${rememberMe ? ' (Remember me enabled)' : ''}`)
+          hideLoadingState(document.querySelector('#login-form .submit-button'), 'Sign In')
+        }, 1500)
+      }
+
+      function handleSignup() {
+        const formData = {
+          firstname: document.getElementById('signup-firstname').value,
+          lastname: document.getElementById('signup-lastname').value,
+          email: document.getElementById('signup-email').value,
+          studentId: document.getElementById('signup-student-id').value,
+          password: document.getElementById('signup-password').value
+        }
+        
+        // Simulate signup process
+        showLoadingState(document.querySelector('#signup-form .submit-button'))
+        
+        setTimeout(() => {
+          alert(`Account created successfully! Welcome to Campus Connected, ${formData.firstname}!`)
+          hideLoadingState(document.querySelector('#signup-form .submit-button'), 'Create Account')
+          
+          // Switch to login form after successful signup
+          document.querySelector('[data-tab="login"]').click()
+          document.getElementById('login-email').value = formData.email
+        }, 2000)
+      }
+
+      function showLoadingState(button) {
+        button.classList.add('loading')
+        button.innerHTML = '<span class="spinner"></span>Processing...'
+        button.disabled = true
+      }
+
+      function hideLoadingState(button, originalText) {
+        button.classList.remove('loading')
+        button.innerHTML = originalText
+        button.disabled = false
+      }
+
+      function showError(errorElement, message) {
+        errorElement.textContent = message
+        errorElement.parentElement.classList.add('error')
+      }
+
+      function clearError(e) {
+        const input = e.target
+        const errorElement = document.getElementById(`${input.id}-error`)
+        if (errorElement) {
+          errorElement.textContent = ''
+          errorElement.parentElement.classList.remove('error')
+        }
+      }
+    </script>
+  </body>
+</html>

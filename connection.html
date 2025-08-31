@@ -14,7 +14,7 @@
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            background: #DDDAD0;
             color: #334155;
             line-height: 1.6;
             min-height: 100vh;
@@ -22,51 +22,42 @@
 
         /* Navigation */
         .navbar {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid #e2e8f0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            padding: 0 20px;
-        }
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  height: 80px;
+  background-color: transparent;
+  transition: backdrop-filter 0.3s ease, background-color 0.3s ease;
+  z-index: 100;
+}
+.navbar .logo img {
+  height: 100px;
+}
+.navbar .nav-links a,
+.profile a {
+  margin-left: 1.5rem;
+  text-decoration: none;
+  color:black;
+  font-weight: 500;
+}
+.navbar.blur {
+  backdrop-filter: blur(8px);
+  background-color: rgba(255, 255, 255, 0.4);
+}
 
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            height: 70px;
-        }
 
-        .nav-brand {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .logo {
-            width: 36px;
-            height: 36px;
-            border-radius: 8px;
-            object-fit: cover;
-        }
-
-        .brand-name {
-            font-size: 20px;
-            font-weight: 700;
-            color: #1e40af;
-        }
-
-        .nav-links {
+        .bar-links {
             display: flex;
             gap: 8px;
+            margin-left: 39%;
         }
 
-        .nav-link {
+        .bar-link {
             text-decoration: none;
-            color: #64748b;
+            color: white;
             padding: 10px 16px;
             border-radius: 8px;
             font-weight: 500;
@@ -76,14 +67,15 @@
             align-items: center;
             gap: 6px;
             cursor: pointer;
+            background-color: black;
         }
 
-        .nav-link:hover {
+        .bar-link:hover {
             color: #1e40af;
             background: #f1f5f9;
         }
 
-        .nav-link.active {
+        .bar-link.active {
             color: #1e40af;
             background: #dbeafe;
         }
@@ -98,24 +90,7 @@
             text-align: center;
         }
 
-        .user-profile {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .profile-pic {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid #e2e8f0;
-        }
-
-        .username {
-            font-weight: 500;
-            color: #334155;
-        }
+        
 
         /* Main Content */
         .main-content {
@@ -234,7 +209,7 @@
         .card-header {
             position: relative;
             height: 120px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #dcfce7;
         }
 
         .student-avatar {
@@ -670,29 +645,142 @@
                 opacity: 1;
             }
         }
+        footer {
+      background: #0f172a; /* dark navy */
+      color: #fff;
+      padding: 50px 20px 20px;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 40px;
+    }
+
+    /* Left section */
+    .footer-brand {
+      flex: 1 1 250px;
+    }
+    .footer-brand h2 {
+      display: flex;
+      align-items: center;
+      font-size: 20px;
+      margin-bottom: 12px;
+    }
+    .footer-brand h2 span {
+      margin-right: 8px;
+      font-size: 22px;
+      color: #ff5edc;
+    }
+    .footer-brand p {
+      font-size: 14px;
+      line-height: 1.6;
+      margin-bottom: 15px;
+      color: #cbd5e1;
+    }
+.head{
+  color:black;
+  text-align: center;
+}
+    /* Social icons */
+    .social {
+      display: flex;
+      gap: 12px;
+    }
+    .social a {
+      background: #1e293b;
+      color: #fff;
+      text-decoration: none;
+      width: 35px;
+      height: 35px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    .social a:hover {
+      background: #ff5edc;
+      transform: scale(1.1);
+    }
+
+    /* Middle sections */
+    .footer-links {
+      flex: 1 1 150px;
+    }
+    .footer-links h3 {
+      font-size: 16px;
+      margin-bottom: 12px;
+    }
+    .footer-links a {
+      display: block;
+      color: #cbd5e1;
+      font-size: 14px;
+      text-decoration: none;
+      margin-bottom: 8px;
+      transition: 0.3s;
+    }
+    .footer-links a:hover {
+      color: #fff;
+    }
+
+    /* Bottom bar */
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 30px auto 0;
+      border-top: 1px solid #1e293b;
+      padding-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 15px;
+      font-size: 13px;
+      color: #cbd5e1;
+    }
+
+    .footer-bottom span {
+      color: #ff5edc;
+    }
+
+    .contact {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      font-size: 14px;
+    }
+
     </style>
 </head>
 <body>
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-brand">
-                <img src="https://images.pexels.com/photos/267885/pexels-photo-267885.jpeg?auto=compress&cs=tinysrgb&w=40&h=40&fit=crop" alt="CampusConnect" class="logo">
-                <span class="brand-name">CampusConnect</span>
-            </div>
+  <header class="navbar" id="navbar">
+        <div class="logo"><img src="images/Logo.png"></div>
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Contact</a>
+        </div>
+        <div class="profile">
+            <a href="#">Login</a>
+            <a href="#">Sign Up</a>
+        </div>
+    </header>
+    
             
-            <div class="nav-links">
-                <a href="#" class="nav-link active" data-tab="discover">👥 Discover</a>
-                <a href="#" class="nav-link" data-tab="requests">
-                    🔔 Requests
+            <div class="bar-links">
+                <a href="#" class="bar-link active" d> Discover</a>
+                <a href="#" class="bar-link" data-tab="requests">
+                     Requests
                     <span class="notification-badge" id="requestBadge">3</span>
                 </a>
-                <a href="#" class="nav-link" data-tab="connections">💬 My Network</a>
+                <a href="#" class="bar-link" data-tab="connections"> My Network</a>
             </div>
             
-            <div class="user-profile">
-                <img src="https://images.pexels.com/photos/1043471/pexels-photo-1043471.jpeg?auto=compress&cs=tinysrgb&w=40&h=40&fit=crop" alt="You" class="profile-pic">
-                <span class="username">Tanya Aggarwal</span>
-            </div>
+            
         </div>
     </nav>
 
@@ -761,6 +849,52 @@
             </div>
         </section>
     </main>
+    <footer>
+    <div class="footer-container">
+      
+       
+      <div class="footer-brand">
+        <h2><span>💜</span> CONNECTED</h2>
+        <p>
+          Where campus friendships begin! Connect with like-minded students, 
+          share amazing memories, and build lasting relationships that go beyond graduation. 💕
+        </p>
+        <div class="social">
+          <a href="#">f</a>
+          <a href="#">ig</a>
+          <a href="#">tw</a>
+        </div>
+      </div>
+
+      <div class="footer-links">
+        <h3>Features</h3>
+        <a href="#">Profile Matching</a>
+        <a href="#">Video Calls</a>
+        <a href="#">Memory Sharing</a>
+        <a href="#">Communities</a>
+      </div>
+
+      
+      <div class="footer-links">
+        <h3>Support</h3>
+        <a href="#">Help Center</a>
+        <a href="#">Safety Guidelines</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+    </div>
+
+    
+    <div class="footer-bottom">
+      <p>© 2025 CONNECTED. All rights reserved. Made with <span>💕</span> for students.</p>
+      
+      <div class="contact">
+        <p>📧 hello@connected.com</p>
+        <p>📞 1-800-CAMPUS</p>
+       
+      </div>
+    </div>
+  </footer>
 
     <script>
         // Mock data for students
@@ -863,390 +997,84 @@
             }
         ];
 
-        // Mock data for requests and connections
-        let sentRequests = new Set();
-        let receivedRequests = [
-            {
-                id: 101,
-                name: "Gazal Singla",
-                avatar: "https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=200&h=200&fit=crop",
-                major: "Finance",
-                university: "Wharton School",
-                year: "Senior"
-            },
-            {
-                id: 102,
-                name: "Kanika",
-                avatar: "https://images.pexels.com/photos/1036623/pexels-photo-1036623.jpeg?auto=compress&cs=tinysrgb&w=200&h=200&fit=crop",
-                major: "Pre-Med",
-                university: "Johns Hopkins",
-                year: "Junior"
-            },
-            {
-                id: 103,
-                name: "Durvish Sharma",
-                avatar: "https://images.pexels.com/photos/1043471/pexels-photo-1043471.jpeg?auto=compress&cs=tinysrgb&w=200&h=200&fit=crop",
-                major: "Architecture",
-                university: "Cornell University",
-                year: "Sophomore"
-            }
-        ];
+// Dummy data
 
-        let connections = [
-            {
-                id: 201,
-                name: "Om Atri",
-                avatar: "https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=200&h=200&fit=crop",
-                major: "Marketing",
-                university: "NYU Stern",
-                year: "Senior",
-                lastMessage: "Hey! How's your semester going?",
-                isOnline: true
-            },
-            {
-                id: 202,
-                name: "Noor Khanna",
-                avatar: "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=200&h=200&fit=crop",
-                major: "Data Science",
-                university: "Carnegie Mellon",
-                year: "Graduate",
-                lastMessage: "Thanks for the study group invite!",
-                isOnline: false
-            }
-        ];
 
-        // Tab switching functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const navLinks = document.querySelectorAll('.nav-link');
-            const tabContents = document.querySelectorAll('.tab-content');
-            
-            navLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    
-                    // Remove active class from all links and tabs
-                    navLinks.forEach(l => l.classList.remove('active'));
-                    tabContents.forEach(t => t.classList.remove('active'));
-                    
-                    // Add active class to clicked link
-                    this.classList.add('active');
-                    
-                    // Show corresponding tab
-                    const tabId = this.getAttribute('data-tab');
-                    document.getElementById(tabId).classList.add('active');
-                    
-                    // Load content based on tab
-                    if (tabId === 'discover') {
-                        renderStudents();
-                    } else if (tabId === 'requests') {
-                        renderRequests();
-                    } else if (tabId === 'connections') {
-                        renderConnections();
-                    }
-                });
-            });
-            
-            // Initialize with discover tab
-            renderStudents();
-            
-            // Search functionality
-            const searchInput = document.getElementById('searchInput');
-            if (searchInput) {
-                searchInput.addEventListener('input', function() {
-                    renderStudents(this.value);
-                });
-            }
+// Dummy data
 
-            // Filter functionality
-            const universityFilter = document.getElementById('universityFilter');
-            const majorFilter = document.getElementById('majorFilter');
-            
-            if (universityFilter) {
-                universityFilter.addEventListener('change', function() {
-                    renderStudents();
-                });
-            }
-            
-            if (majorFilter) {
-                majorFilter.addEventListener('change', function() {
-                    renderStudents();
-                });
-            }
-        });
 
-        function renderStudents(searchTerm = '') {
-            const container = document.getElementById('studentsGrid');
-            if (!container) return;
-            
-            let filteredStudents = students;
-            
-            // Apply search filter
-            if (searchTerm) {
-                filteredStudents = filteredStudents.filter(student => 
-                    student.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                    student.major.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                    student.university.toLowerCase().includes(searchTerm.toLowerCase())
-                );
-            }
+document.addEventListener('DOMContentLoaded', function () {
+      renderStudents();
 
-            // Apply university filter
-            const universityFilter = document.getElementById('universityFilter');
-            if (universityFilter && universityFilter.value !== 'All Universities') {
-                filteredStudents = filteredStudents.filter(student => 
-                    student.university === universityFilter.value
-                );
-            }
+      const searchInput = document.getElementById('searchInput');
+      searchInput.addEventListener('input', function () {
+        renderStudents(this.value);
+      });
+    });
 
-            // Apply major filter
-            const majorFilter = document.getElementById('majorFilter');
-            if (majorFilter && majorFilter.value !== 'All Majors') {
-                filteredStudents = filteredStudents.filter(student => 
-                    student.major === majorFilter.value
-                );
-            }
-            
-            if (filteredStudents.length === 0) {
-                container.innerHTML = `
-                    <div class="empty-state" style="grid-column: 1 / -1;">
-                        <img src="https://images.pexels.com/photos/267885/pexels-photo-267885.jpeg?auto=compress&cs=tinysrgb&w=80&h=80&fit=crop" alt="No students" class="empty-icon">
-                        <h3>No students found</h3>
-                        <p>Try adjusting your search or filters to find more students.</p>
-                    </div>
-                `;
-                return;
-            }
-            
-            container.innerHTML = filteredStudents.map(student => `
-                <div class="student-card">
-                    <div class="card-header">
-                        <img src="${student.avatar}" alt="${student.name}" class="student-avatar">
-                        <span class="online-status ${student.isOnline ? 'online' : 'offline'}">
-                            ${student.isOnline ? '🟢 Online' : '⚫ Offline'}
-                        </span>
-                    </div>
-                    <div class="card-body">
-                        <h3 class="student-name">${student.name}</h3>
-                        <p class="student-info">📚 ${student.major} • ${student.year}</p>
-                        <p class="student-info">🏫 ${student.university}</p>
-                        <p class="student-bio">${student.bio}</p>
-                        <div class="interests">
-                            ${student.interests.slice(0, 3).map(interest => 
-                                `<span class="interest-tag">${interest}</span>`
-                            ).join('')}
-                            ${student.interests.length > 3 ? `<span class="interest-tag">+${student.interests.length - 3} more</span>` : ''}
-                        </div>
-                        <button class="connect-btn ${getButtonClass(student.id)}" onclick="handleConnect(${student.id})" ${getButtonDisabled(student.id)}>
-                            ${getButtonText(student.id)}
-                        </button>
-                    </div>
-                </div>
-            `).join('');
+    function renderStudents(searchTerm = '') {
+      const container = document.getElementById('studentsGrid');
+      if (!container) return;
+
+      // Ensure all students have isFollowing defined BEFORE filtering
+      students.forEach(student => {
+        if (typeof student.isFollowing === 'undefined') {
+          student.isFollowing = false;
         }
+      });
 
-        function renderRequests() {
-            const container = document.getElementById('requestsContainer');
-            if (!container) return;
-            
-            if (receivedRequests.length === 0) {
-                container.innerHTML = `
-                    <div class="empty-state">
-                        <img src="https://images.pexels.com/photos/267885/pexels-photo-267885.jpeg?auto=compress&cs=tinysrgb&w=80&h=80&fit=crop" alt="No requests" class="empty-icon">
-                        <h3>No pending requests</h3>
-                        <p>When students send you connection requests, they'll appear here.</p>
-                    </div>
-                `;
-                return;
-            }
-            
-            container.innerHTML = receivedRequests.map(request => `
-                <div class="request-card">
-                    <div class="request-header">
-                        <img src="${request.avatar}" alt="${request.name}" class="request-avatar">
-                        <div class="request-info">
-                            <h3>${request.name}</h3>
-                            <p>📚 ${request.major} • ${request.year}</p>
-                            <p>🏫 ${request.university}</p>
-                        </div>
-                    </div>
-                    <div class="request-actions">
-                        <button class="btn btn-accept" onclick="acceptRequest(${request.id})">✅ Accept</button>
-                        <button class="btn btn-decline" onclick="declineRequest(${request.id})">❌ Decline</button>
-                    </div>
-                </div>
-            `).join('');
-        }
+      // Filter students by search term
+      let filteredStudents = students.filter(student =>
+        student.name.toLowerCase().includes(searchTerm.toLowerCase())
+      );
 
-        function renderConnections() {
-            const container = document.getElementById('connectionsGrid');
-            if (!container) return;
-            
-            if (connections.length === 0) {
-                container.innerHTML = `
-                    <div class="empty-state">
-                        <img src="https://images.pexels.com/photos/267885/pexels-photo-267885.jpeg?auto=compress&cs=tinysrgb&w=80&h=80&fit=crop" alt="No connections" class="empty-icon">
-                        <h3>No connections yet</h3>
-                        <p>Start by discovering and connecting with other students!</p>
-                    </div>
-                `;
-                return;
-            }
-            
-            container.innerHTML = connections.map(connection => `
-                <div class="connection-card">
-                    <div class="connection-header">
-                        <div class="connection-profile">
-                            <img src="${connection.avatar}" alt="${connection.name}" class="connection-avatar">
-                            <div class="connection-details">
-                                <h3>${connection.name}</h3>
-                                <p>📚 ${connection.major}</p>
-                                <p>🏫 ${connection.university}</p>
-                                ${connection.isOnline ? '<p style="color: #16a34a; font-size: 12px;">🟢 Online now</p>' : ''}
-                            </div>
-                        </div>
-                    </div>
-                    <div class="connection-actions">
-                        <button class="action-btn primary">💬 Message</button>
-                        <button class="action-btn">👤 Profile</button>
-                        <button class="action-btn">📞 Call</button>
-                    </div>
-                </div>
-            `).join('');
-        }
+      if (filteredStudents.length === 0) {
+        container.innerHTML = `
+          <div class="empty-state" style="grid-column: 1 / -1;">
+            <img src="https://images.pexels.com/photos/267885/pexels-photo-267885.jpeg?auto=compress&cs=tinysrgb&w=80&h=80&fit=crop" alt="No students" class="empty-icon" />
+            <h3>No students found</h3>
+            <p>Try adjusting your search to find more students.</p>
+          </div>
+        `;
+        return;
+      }
 
-        function getButtonClass(studentId) {
-            if (connections.some(conn => conn.id === studentId)) {
-                return 'connected';
-            }
-            if (sentRequests.has(studentId)) {
-                return 'sent';
-            }
-            return 'primary';
-        }
+      container.innerHTML = filteredStudents.map(student => `
+        <div class="student-card">
+          <div class="card-header">
+            <img src="${student.avatar}" alt="${student.name}" class="student-avatar" />
+            <span class="online-status ${student.isOnline ? 'online' : 'offline'}">
+              ${student.isOnline ? '🟢 Online' : '⚫ Offline'}
+            </span>
+          </div>
+          <div class="card-body">
+            <h3 class="student-name">${student.name}</h3>
+            <p class="student-info">📚 ${student.major} • ${student.year}</p>
+            <p class="student-info">🏫 ${student.university}</p>
+            <p class="student-bio">${student.bio}</p>
+            <div class="interests">
+              ${student.interests.slice(0, 3).map(interest =>
+                `<span class="interest-tag">${interest}</span>`
+              ).join('')}
+              ${student.interests.length > 3 ? `<span class="interest-tag">+${student.interests.length - 3} more</span>` : ''}
+            </div>
+            <button class="connect-btn ${student.isFollowing ? 'connected' : 'primary'}"
+                    onclick="toggleFollow(${student.id})">
+              ${student.isFollowing ? '✅ Following' : '➕ Follow'}
+            </button>
+          </div>
+        </div>
+      `).join('');
+    }
 
-        function getButtonText(studentId) {
-            if (connections.some(conn => conn.id === studentId)) {
-                return '✅ Connected';
-            }
-            if (sentRequests.has(studentId)) {
-                return '⏳ Request Sent';
-            }
-            return '➕ Connect';
-        }
-
-        function getButtonDisabled(studentId) {
-            if (connections.some(conn => conn.id === studentId) || sentRequests.has(studentId)) {
-                return 'disabled';
-            }
-            return '';
-        }
-
-        function handleConnect(studentId) {
-            if (sentRequests.has(studentId) || connections.some(conn => conn.id === studentId)) {
-                return;
-            }
-            
-            sentRequests.add(studentId);
-            renderStudents();
-            
-            const student = students.find(s => s.id === studentId);
-            showNotification(`Connection request sent to ${student.name}! 🚀`);
-        }
-
-        function acceptRequest(requestId) {
-            const request = receivedRequests.find(req => req.id === requestId);
-            if (request) {
-                connections.push({
-                    ...request,
-                    lastMessage: "Thanks for connecting!",
-                    isOnline: Math.random() > 0.5
-                });
-                receivedRequests = receivedRequests.filter(req => req.id !== requestId);
-                
-                updateNotificationBadge();
-                renderRequests();
-                showNotification(`You're now connected with ${request.name}! 🎉`);
-            }
-        }
-
-        function declineRequest(requestId) {
-            const request = receivedRequests.find(req => req.id === requestId);
-            receivedRequests = receivedRequests.filter(req => req.id !== requestId);
-            updateNotificationBadge();
-            renderRequests();
-            showNotification(`Request from ${request.name} declined`);
-        }
-
-        function updateNotificationBadge() {
-            const badge = document.getElementById('requestBadge');
-            if (badge) {
-                badge.textContent = receivedRequests.length;
-                if (receivedRequests.length === 0) {
-                    badge.style.display = 'none';
-                } else {
-                    badge.style.display = 'inline-block';
-                }
-            }
-        }
-
-        function showNotification(message) {
-            // Remove existing notification if any
-            const existingNotification = document.querySelector('.notification');
-            if (existingNotification) {
-                existingNotification.remove();
-            }
-
-            // Create notification element
-            const notification = document.createElement('div');
-            notification.className = 'notification';
-            notification.textContent = message;
-            
-            document.body.appendChild(notification);
-            
-            // Remove after 3 seconds
-            setTimeout(() => {
-                if (notification.parentNode) {
-                    notification.style.animation = 'slideIn 0.3s ease reverse';
-                    setTimeout(() => {
-                        if (notification.parentNode) {
-                            notification.parentNode.removeChild(notification);
-                        }
-                    }, 300);
-                }
-            }, 3000);
-        }
-
-        // Add some interactive features
-        document.addEventListener('DOMContentLoaded', function() {
-            // Add click effects to buttons
-            document.addEventListener('click', function(e) {
-                if (e.target.matches('button')) {
-                    e.target.style.transform = 'scale(0.98)';
-                    setTimeout(() => {
-                        e.target.style.transform = '';
-                    }, 150);
-                }
-            });
-
-            // Initialize notification badge
-            updateNotificationBadge();
-        });
-
-        // Simulate some real-time updates
-        setInterval(() => {
-            // Randomly update online status
-            students.forEach(student => {
-                if (Math.random() < 0.1) { // 10% chance to change status
-                    student.isOnline = !student.isOnline;
-                }
-            });
-            
-            // Re-render current tab if it's discover
-            const activeTab = document.querySelector('.tab-content.active');
-            if (activeTab && activeTab.id === 'discover') {
-                const searchInput = document.getElementById('searchInput');
-                renderStudents(searchInput ? searchInput.value : '');
-            }
-        }, 10000); // Update every 10 seconds
+    function toggleFollow(studentId) {
+      const student = students.find(s => s.id === studentId);
+      if (student) {
+        student.isFollowing = !student.isFollowing;
+        const searchInput = document.getElementById('searchInput');
+        renderStudents(searchInput ? searchInput.value : '');
+      }
+    }
     </script>
 </body>
 </html>
