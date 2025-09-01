@@ -160,25 +160,19 @@
 
     
     <div class="footer-bottom">
-      <p>© 2025 CONNECTED. All rights reserved. Made with <span>💕</span> for students.</p>
+      <p style="color: white;">© 2025 CONNECTED. All rights reserved. Made with <span>💕</span> for students.</p>
       
-      <div class="contact">
-        <p>📧 hello@connected.com</p>
-        <p>📞 1-800-CAMPUS</p>
+      <div class="contact" >
+        <p style="color: white;">📧 hello@connected.com</p>
+        <p style="color: white;">📞 1-800-CAMPUS</p>
        
       </div>
     </div>
   </footer>
 
-  <!-- <footer class="site-footer">
-    <div class="container">
-      <div style="display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap;">
-        <div>© <span id="year"></span> Campus Clubs</div>
-        <div class="muted">Questions? Find us at the Student Union.</div>
-      </div>
-    </div>
-  </footer> -->
-  <script>document.getElementById('year').textContent = new Date().getFullYear()
+
+  <script>
+  // document.getElementById('year').textContent = new Date().getFullYear()
 
 
 const searchInput = document.getElementById("search");
@@ -188,7 +182,7 @@ searchInput.addEventListener("keyup", () => {
   const query = searchInput.value.toLowerCase();
   cards.forEach(card => {
     const text = card.innerText.toLowerCase();
-    card.style.display = text.includes(query) ? "block" : "none";
+    card.style.display = text.includes(query) ? "" : "none";
   });
 });
 
