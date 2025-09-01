@@ -87,15 +87,6 @@
   <script>
     // small progressive enhancement for the year; not required for layout
     document.getElementById('year').textContent = new Date().getFullYear()
-    const navbar = document.getElementById('navbar');
-
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-        navbar.classList.add('blur');
-    } else {
-        navbar.classList.remove('blur');
-    }
-});
 
 const text = "A Vibrant Home For All Student Clubs And Events!";
 const typingElement = document.getElementById("typing-text");
