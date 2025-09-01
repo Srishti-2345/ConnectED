@@ -611,332 +611,244 @@
 
     <script>
       // Initialize the authentication functionality
-      initializeAuth()
+    
+  document.addEventListener('DOMContentLoaded', () => {
+    const tabButtons = document.querySelectorAll('.tab-button');
+    const forms = document.querySelectorAll('.auth-form');
 
-      function initializeAuth() {
-        // Tab switching functionality
-        const tabButtons = document.querySelectorAll('.tab-button')
-        const forms = document.querySelectorAll('.auth-form')
-        
-        tabButtons.forEach(button => {
-          button.addEventListener('click', () => {
-            const targetTab = button.dataset.tab
-            
-            // Update active tab
-            tabButtons.forEach(btn => btn.classList.remove('active'))
-            button.classList.add('active')
-            
-            // Show corresponding form
-            forms.forEach(form => {
-              form.classList.remove('active')
-              if (form.id === `${targetTab}-form`) {
-                form.classList.add('active')
-              }
-            })
-          })
-        })
+    // --- 1. Tab Switching ---
+    tabButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const tab = button.dataset.tab;
 
-        // Form validation and submission
-        setupFormValidation()
-        setupPasswordStrength()
-      }
+        tabButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
 
-      function setupFormValidation() {
-        const loginForm = document.getElementById('login-form')
-        const signupForm = document.getElementById('signup-form')
-
-        // Login form validation
-        loginForm.addEventListener('submit', (e) => {
-          e.preventDefault()
-          if (validateLoginForm()) {
-            handleLogin()
+        forms.forEach(form => {
+          form.classList.remove('active');
+          if (form.id === `${tab}-form`) {
+            form.classList.add('active');
           }
-        })
+        });
+      });
+    });
 
-        // Sign up form validation
-        signupForm.addEventListener('submit', (e) => {
-          e.preventDefault()
-          if (validateSignupForm()) {
-            handleSignup()
-          }
-        })
+    // --- 2. Email Validation ---
+    function validateEmail(input) {
+      const value = input.value.trim();
+      const errorElement = document.getElementById(`${input.id}-error`);
+      const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-        // Real-time validation
-        setupRealTimeValidation()
+      if (!value) {
+        return showError(input, 'Email is required');
       }
 
-      function setupRealTimeValidation() {
-        // Email validation
-        const emailInputs = document.querySelectorAll('input[type="email"]')
-        emailInputs.forEach(input => {
-          input.addEventListener('blur', validateEmail)
-          input.addEventListener('input', clearError)
-        })
+      if (!regex.test(value)) {
+        return showError(input, 'Invalid email format');
+      }
 
-        // Password validation
-        const passwordInputs = document.querySelectorAll('input[type="password"]')
-        passwordInputs.forEach(input => {
-          input.addEventListener('blur', validatePassword)
-          input.addEventListener('input', clearError)
-        })
+      // Optional: Check for @chitkara.edu.in domain
+      if (input.id === 'signup-email' && !value.endsWith('@chitkara.edu.in')) {
+        return showError(input, 'Use your Chitkara email address');
+      }
 
-        // Name validation
-        const nameInputs = document.querySelectorAll('#signup-firstname, #signup-lastname')
-        nameInputs.forEach(input => {
-          input.addEventListener('blur', validateName)
-          input.addEventListener('input', clearError)
-        })
+      return clearError(input);
+    }
 
-        // Student ID validation
-        const studentIdInput = document.getElementById('signup-student-id')
-        if (studentIdInput) {
-          studentIdInput.addEventListener('blur', validateStudentId)
-          studentIdInput.addEventListener('input', clearError)
+    // --- 3. Password Validation ---
+    function validatePassword(input) {
+      const value = input.value.trim();
+      const errorElement = document.getElementById(`${input.id}-error`);
+
+      if (!value) {
+        return showError(input, 'Password is required');
+      }
+
+      if (input.id === 'signup-password') {
+        if (value.length < 8) {
+          return showError(input, 'At least 8 characters required');
         }
-
-        // Confirm password validation
-        const confirmPasswordInput = document.getElementById('signup-confirm-password')
-        if (confirmPasswordInput) {
-          confirmPasswordInput.addEventListener('blur', validateConfirmPassword)
-          confirmPasswordInput.addEventListener('input', clearError)
+        if (!/(?=.*[a-z])(?=.*[A-Z])(?=.*\d)/.test(value)) {
+          return showError(input, 'Must include uppercase, lowercase & number');
         }
       }
 
-      function validateEmail(e) {
-        const input = e.target
-        const email = input.value.trim()
-        const errorElement = document.getElementById(`${input.id}-error`)
-        
-        if (!email) {
-          showError(errorElement, 'Email is required')
-          return false
+      return clearError(input);
+    }
+
+    // --- 4. Confirm Password ---
+    function validateConfirmPassword() {
+      const password = document.getElementById('signup-password').value;
+      const confirm = document.getElementById('signup-confirm-password');
+      const errorElement = document.getElementById('signup-confirm-password-error');
+
+      if (!confirm.value) {
+        return showError(confirm, 'Confirm your password');
+      }
+
+      if (confirm.value !== password) {
+        return showError(confirm, 'Passwords do not match');
+      }
+
+      return clearError(confirm);
+    }
+
+    // --- 5. Name Validation ---
+    function validateName(input) {
+      const value = input.value.trim();
+
+      if (!value) {
+        return showError(input, 'This field is required');
+      }
+
+      if (value.length < 2) {
+        return showError(input, 'Minimum 2 characters required');
+      }
+
+      return clearError(input);
+    }
+
+    // --- 6. Student ID ---
+    function validateStudentId() {
+      const input = document.getElementById('signup-student-id');
+      const value = input.value.trim();
+
+      if (!value) {
+        return showError(input, 'Student ID is required');
+      }
+
+      if (value.length < 6) {
+        return showError(input, 'Must be at least 6 characters');
+      }
+
+      return clearError(input);
+    }
+
+    // --- 7. Show/Hide Error ---
+    function showError(input, message) {
+      const errorElement = document.getElementById(`${input.id}-error`);
+      errorElement.textContent = message;
+      input.parentElement.classList.add('error');
+      return false;
+    }
+
+    function clearError(input) {
+      const errorElement = document.getElementById(`${input.id}-error`);
+      errorElement.textContent = '';
+      input.parentElement.classList.remove('error');
+      return true;
+    }
+
+    // --- 8. Password Strength Indicator ---
+    const strengthEl = document.getElementById('password-strength');
+    const passwordInput = document.getElementById('signup-password');
+
+    if (passwordInput && strengthEl) {
+      passwordInput.addEventListener('input', () => {
+        const password = passwordInput.value;
+        let strength = 0;
+
+        if (password.length >= 8) strength++;
+        if (/[A-Z]/.test(password)) strength++;
+        if (/[a-z]/.test(password)) strength++;
+        if (/\d/.test(password)) strength++;
+        if (/[^A-Za-z0-9]/.test(password)) strength++;
+
+        const labels = ['Weak', 'Fair', 'Good', 'Strong'];
+        const classes = ['weak', 'fair', 'good', 'strong'];
+
+        if (password.length === 0) {
+          strengthEl.textContent = '';
+          strengthEl.className = 'password-strength';
+          return;
         }
-        
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-        if (!emailRegex.test(email)) {
-          showError(errorElement, 'Please enter a valid email address')
-          return false
+
+        const index = Math.min(strength - 1, labels.length - 1);
+        strengthEl.textContent = labels[index];
+        strengthEl.className = `password-strength ${classes[index]}`;
+      });
+    }
+
+    // --- 9. Real-Time Field Validation ---
+    const inputsToValidate = [
+      '#login-email',
+      '#login-password',
+      '#signup-firstname',
+      '#signup-lastname',
+      '#signup-email',
+      '#signup-student-id',
+      '#signup-password',
+      '#signup-confirm-password'
+    ];
+
+    inputsToValidate.forEach(selector => {
+      const input = document.querySelector(selector);
+      if (!input) return;
+
+      input.addEventListener('blur', () => {
+        switch (input.id) {
+          case 'login-email':
+          case 'signup-email':
+            validateEmail(input);
+            break;
+          case 'login-password':
+          case 'signup-password':
+            validatePassword(input);
+            break;
+          case 'signup-confirm-password':
+            validateConfirmPassword();
+            break;
+          case 'signup-student-id':
+            validateStudentId();
+            break;
+          default:
+            validateName(input);
         }
-        
-        // Check for university email domain (optional enhancement)
-        if (input.id === 'signup-email' && !email.endsWith('@chitkara.edu.in')) {
-          showError(errorElement, 'Please use your Chitkara University email address (@chitkara.edu.in)')
-          return false
-        }
-        
-        clearError(e)
-        return true
+      });
+
+      input.addEventListener('input', () => clearError(input));
+    });
+
+    // --- 10. Handle Login Submit ---
+    document.getElementById('login-form').addEventListener('submit', e => {
+      e.preventDefault();
+
+      const emailValid = validateEmail(document.getElementById('login-email'));
+      const passwordValid = validatePassword(document.getElementById('login-password'));
+
+      if (emailValid && passwordValid) {
+        alert('Login successful!');
+        // TODO: Add actual login logic
+      }
+    });
+
+    // --- 11. Handle Signup Submit ---
+    document.getElementById('signup-form').addEventListener('submit', e => {
+      e.preventDefault();
+
+      const allValid =
+        validateName(document.getElementById('signup-firstname')) &&
+        validateName(document.getElementById('signup-lastname')) &&
+        validateEmail(document.getElementById('signup-email')) &&
+        validateStudentId() &&
+        validatePassword(document.getElementById('signup-password')) &&
+        validateConfirmPassword();
+
+      const termsChecked = document.getElementById('terms-agreement').checked;
+
+      if (!termsChecked) {
+        alert('Please accept Terms of Service and Privacy Policy');
+        return;
       }
 
-      function validatePassword(e) {
-        const input = e.target
-        const password = input.value
-        const errorElement = document.getElementById(`${input.id}-error`)
-        
-        if (!password) {
-          showError(errorElement, 'Password is required')
-          return false
-        }
-        
-        if (input.id === 'signup-password') {
-          if (password.length < 8) {
-            showError(errorElement, 'Password must be at least 8 characters long')
-            return false
-          }
-          
-          if (!/(?=.*[a-z])(?=.*[A-Z])(?=.*\d)/.test(password)) {
-            showError(errorElement, 'Password must contain uppercase, lowercase, and number')
-            return false
-          }
-        }
-        
-        clearError(e)
-        return true
+      if (allValid && termsChecked) {
+        alert('Signup successful!');
+        // TODO: Add actual signup logic
       }
+    });
+  });
+</script>
 
-      function validateName(e) {
-        const input = e.target
-        const name = input.value.trim()
-        const errorElement = document.getElementById(`${input.id}-error`)
-        
-        if (!name) {
-          showError(errorElement, 'This field is required')
-          return false
-        }
-        
-        if (name.length < 2) {
-          showError(errorElement, 'Name must be at least 2 characters long')
-          return false
-        }
-        
-        clearError(e)
-        return true
-      }
-
-      function validateStudentId(e) {
-        const input = e.target
-        const studentId = input.value.trim()
-        const errorElement = document.getElementById(`${input.id}-error`)
-        
-        if (!studentId) {
-          showError(errorElement, 'Student ID is required')
-          return false
-        }
-        
-        if (studentId.length < 6) {
-          showError(errorElement, 'Student ID must be at least 6 characters')
-          return false
-        }
-        
-        clearError(e)
-        return true
-      }
-
-      function validateConfirmPassword(e) {
-        const confirmPassword = e.target.value
-        const password = document.getElementById('signup-password').value
-        const errorElement = document.getElementById('signup-confirm-password-error')
-        
-        if (!confirmPassword) {
-          showError(errorElement, 'Please confirm your password')
-          return false
-        }
-        
-        if (confirmPassword !== password) {
-          showError(errorElement, 'Passwords do not match')
-          return false
-        }
-        
-        clearError(e)
-        return true
-      }
-
-      function setupPasswordStrength() {
-        const passwordInput = document.getElementById('signup-password')
-        const strengthIndicator = document.getElementById('password-strength')
-        
-        passwordInput.addEventListener('input', (e) => {
-          const password = e.target.value
-          const strength = calculatePasswordStrength(password)
-          updatePasswordStrength(strengthIndicator, strength)
-        })
-      }
-
-      function calculatePasswordStrength(password) {
-        let score = 0
-        if (password.length >= 8) score++
-        if (password.length >= 12) score++
-        if (/[a-z]/.test(password)) score++
-        if (/[A-Z]/.test(password)) score++
-        if (/\d/.test(password)) score++
-        if (/[^A-Za-z0-9]/.test(password)) score++
-        
-        return score
-      }
-
-      function updatePasswordStrength(element, strength) {
-        const levels = ['', 'weak', 'fair', 'good', 'strong']
-        const texts = ['', 'Weak', 'Fair', 'Good', 'Strong']
-        
-        element.className = `password-strength ${levels[Math.min(strength, 4)]}`
-        element.textContent = strength > 0 ? texts[Math.min(strength, 4)] : ''
-      }
-
-      function validateLoginForm() {
-        const email = document.getElementById('login-email')
-        const password = document.getElementById('login-password')
-        
-        const emailValid = validateEmail({ target: email })
-        const passwordValid = validatePassword({ target: password })
-        
-        return emailValid && passwordValid
-      }
-
-      function validateSignupForm() {
-        const firstname = document.getElementById('signup-firstname')
-        const lastname = document.getElementById('signup-lastname')
-        const email = document.getElementById('signup-email')
-        const studentId = document.getElementById('signup-student-id')
-        const password = document.getElementById('signup-password')
-        const confirmPassword = document.getElementById('signup-confirm-password')
-        const termsAgreement = document.getElementById('terms-agreement')
-        
-        const firstnameValid = validateName({ target: firstname })
-        const lastnameValid = validateName({ target: lastname })
-        const emailValid = validateEmail({ target: email })
-        const studentIdValid = validateStudentId({ target: studentId })
-        const passwordValid = validatePassword({ target: password })
-        const confirmPasswordValid = validateConfirmPassword({ target: confirmPassword })
-        
-        if (!termsAgreement.checked) {
-          alert('Please accept the Terms of Service and Privacy Policy')
-          return false
-        }
-        
-        return firstnameValid && lastnameValid && emailValid && studentIdValid && passwordValid && confirmPasswordValid
-      }
-
-      function handleLogin() {
-        const email = document.getElementById('login-email').value
-        const password = document.getElementById('login-password').value
-        const rememberMe = document.getElementById('remember-me').checked
-        
-        // Simulate login process
-        showLoadingState(document.querySelector('#login-form .submit-button'))
-        
-        setTimeout(() => {
-          alert(`Welcome back! Logging in ${email}${rememberMe ? ' (Remember me enabled)' : ''}`)
-          hideLoadingState(document.querySelector('#login-form .submit-button'), 'Sign In')
-        }, 1500)
-      }
-
-      function handleSignup() {
-        const formData = {
-          firstname: document.getElementById('signup-firstname').value,
-          lastname: document.getElementById('signup-lastname').value,
-          email: document.getElementById('signup-email').value,
-          studentId: document.getElementById('signup-student-id').value,
-          password: document.getElementById('signup-password').value
-        }
-        
-        // Simulate signup process
-        showLoadingState(document.querySelector('#signup-form .submit-button'))
-        
-        setTimeout(() => {
-          alert(`Account created successfully! Welcome to Campus Connected, ${formData.firstname}!`)
-          hideLoadingState(document.querySelector('#signup-form .submit-button'), 'Create Account')
-          
-          // Switch to login form after successful signup
-          document.querySelector('[data-tab="login"]').click()
-          document.getElementById('login-email').value = formData.email
-        }, 2000)
-      }
-
-      function showLoadingState(button) {
-        button.classList.add('loading')
-        button.innerHTML = '<span class="spinner"></span>Processing...'
-        button.disabled = true
-      }
-
-      function hideLoadingState(button, originalText) {
-        button.classList.remove('loading')
-        button.innerHTML = originalText
-        button.disabled = false
-      }
-
-      function showError(errorElement, message) {
-        errorElement.textContent = message
-        errorElement.parentElement.classList.add('error')
-      }
-
-      function clearError(e) {
-        const input = e.target
-        const errorElement = document.getElementById(`${input.id}-error`)
-        if (errorElement) {
-          errorElement.textContent = ''
-          errorElement.parentElement.classList.remove('error')
-        }
-      }
-    </script>
+    
   </body>
 </html>
