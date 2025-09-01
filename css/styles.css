@@ -64,11 +64,12 @@ background:#254D70;
   z-index: 100;
 }
 .navbar .logo img {
-  height: 100px;
+  height: 70px;
+  margin-left: 40px;
 }
 .navbar .nav-links a,
 .profile a {
-  margin-left: 1.5rem;
+  margin-left: 4rem;
   text-decoration: none;
   color:white;
   font-weight: 500;
